@@ -1,11 +1,20 @@
 "use client"
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Merriweather_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import { useEffect } from "react";
 import i18n from "../../public/Locales/i18n";
 import { I18nextProvider } from "react-i18next";
 
+const merryWeather = Merriweather_Sans({
+  subsets: ["latin"],
+  weight:["400"]
+})
+
+const playFair = Playfair_Display({
+  subsets: ["latin"],
+  weight:["700"]
+})
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

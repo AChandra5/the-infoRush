@@ -36,6 +36,7 @@ export default function DrawerAppBar() {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+      <h1 className="text-4xl font-bold text-blue-600">Tailwind is Working!</h1>
       <Typography variant="h6" sx={{ my: 2 }}>
         Family & Minimal Lifestyle
       </Typography>
@@ -44,10 +45,9 @@ export default function DrawerAppBar() {
         {navItems.map((item) => (
           <ListItem key={item.label} disablePadding>
             <ListItemButton sx={{ textAlign: "center" }}>
-              {item.icon && (
-                <Box sx={{ color: "#fff", mr: 1 }}>{item.icon}</Box>
+              {!item.icon && item.label && (
+                <ListItemText primary={item.label} sx={{fontSize: '14px'}}/>
               )}
-              <ListItemText primary={item.label} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -56,14 +56,20 @@ export default function DrawerAppBar() {
   );
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{padding: '0px'}}>
       <CssBaseline />
-      <AppBar component="nav" sx={{ background: "transparent" }}>
+      <AppBar component="nav" position="sticky" 
+      sx={{
+        background: "transparent",
+        boxShadow: "none", 
+        backdropFilter: "blur(10px)",
+        "& .MuiBox-root": { padding: "0px" },
+      }}>
         <Toolbar
           sx={{
             backgroundColor: "#1B2538",
-            borderRadius: "0 0px 5px 5px",
             width: "100%",
+            padding: "0px"
           }}
         >
           <Box
@@ -72,24 +78,26 @@ export default function DrawerAppBar() {
               justifyContent: "space-between",
               width: "inherit",
             }}
-            onClick={handleDrawerToggle}
           >
-            <MenuIcon />
-            <BedtimeTwoToneIcon sx={{ fill: "#FBAD76" }} />
+            <MenuIcon  onClick={handleDrawerToggle} />
+            <Box sx={{display: 'flex', gap: '10px', alignItems: 'center', justifyContent: 'center'}}>
+              <BedtimeTwoToneIcon sx={{ fill: "#FBAD76", height: '.7em' }} />
+              <LanguageButton />
+            </Box>
           </Box>
           <Typography
             variant="h6"
             component="div"
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
-            Family & Minimal Lifestyle
+            <h1>Family & Minimal Lifestyle</h1>
           </Typography>
-          <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 2 }}>
+          <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 5 }}>
             {navItems.map((item) => (
-              <Box key={item.label} sx={{ color: "#fff" }}>
+              <Box key={item.label} sx={{ color: "#fff", fontSize: '12px', marginTop: '10px' }}>
                 {/* Show icon if available and dont display label for icons */}
                 {item.icon && <Box sx={{ color: "#fff" }}>{item.icon}</Box>}
-                {item.icon && item.label ? "" : item.label}
+                <Box>{item.icon && item.label ? "" : item.label}</Box>
               </Box>
             ))}
           </Box>
@@ -112,10 +120,9 @@ export default function DrawerAppBar() {
           {drawer}
         </Drawer>
       </nav>
-      <Box component="main" sx={{ p: 3 }}>
+      {/* <Box component="main" sx={{ p: 3 }}>
         <Toolbar />
-      </Box>
+      </Box> */}
     </Box>
   );
 }
-
