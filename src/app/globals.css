@@ -22,7 +22,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Merriweather', serif;
+  font-family: 'Roboto,Helvetica,Arial,sans-serif';
 }
 
 h1, h2 {
@@ -31,5 +31,4 @@ h1, h2 {
 
 p {
   font-family: 'Playfair Display', serif;
-
 }

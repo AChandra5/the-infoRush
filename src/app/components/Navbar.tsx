@@ -15,18 +15,21 @@ import Typography from "@mui/material/Typography";
 import BedtimeTwoToneIcon from "@mui/icons-material/BedtimeTwoTone";
 import LanguageButton from "./Buttons/LanguageButton";
 import { useTranslation } from "react-i18next";
+import { useContext } from "react";
+import { ThemeContext } from "../../../public/context/ThemeContextProvider";
 
 const drawerWidth = 240;
 
-export default function DrawerAppBar() {
+export default function NavBar({ onClick }: any) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const { t } = useTranslation();
+  const { currentTheme, toggleTheme } = useContext(ThemeContext);
 
   const navItems = [
     { label: t("home") },
     { label: t("categories") },
     { label: t("about") },
-    { label: t("mode"), icon: <BedtimeTwoToneIcon /> },
+    { label: t("mode"), icon: <BedtimeTwoToneIcon />, toggler: true },
     { label: t("language"), icon: <LanguageButton /> },
   ];
 
@@ -44,9 +47,19 @@ export default function DrawerAppBar() {
       <List>
         {navItems.map((item) => (
           <ListItem key={item.label} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-              {!item.icon && item.label && (
-                <ListItemText primary={item.label} sx={{fontSize: '14px'}}/>
+            <ListItemButton
+              sx={{ textAlign: "center" }}
+              onClick={item.toggler ? toggleTheme : undefined}
+            >
+              {item.icon ? (
+                <Box sx={{ color: "#fff" }}>{item.icon}</Box>
+              ) : (
+                item.label && (
+                  <ListItemText
+                    primary={item.label}
+                    sx={{ fontSize: "14px" }}
+                  />
+                )
               )}
             </ListItemButton>
           </ListItem>
@@ -56,20 +69,23 @@ export default function DrawerAppBar() {
   );
 
   return (
-    <Box sx={{padding: '0px'}}>
+    <Box sx={{ padding: "0px" }}>
       <CssBaseline />
-      <AppBar component="nav" position="sticky" 
-      sx={{
-        background: "transparent",
-        boxShadow: "none", 
-        backdropFilter: "blur(10px)",
-        "& .MuiBox-root": { padding: "0px" },
-      }}>
+      <AppBar
+        component="nav"
+        position="sticky"
+        sx={{
+          background: "transparent",
+          boxShadow: "none",
+          backdropFilter: "blur(10px)",
+          "& .MuiBox-root": { padding: "0px" },
+        }}
+      >
         <Toolbar
           sx={{
             backgroundColor: "#1B2538",
             width: "100%",
-            padding: "0px"
+            padding: "0px",
           }}
         >
           <Box
@@ -79,9 +95,19 @@ export default function DrawerAppBar() {
               width: "inherit",
             }}
           >
-            <MenuIcon  onClick={handleDrawerToggle} />
-            <Box sx={{display: 'flex', gap: '10px', alignItems: 'center', justifyContent: 'center'}}>
-              <BedtimeTwoToneIcon sx={{ fill: "#FBAD76", height: '.7em' }} />
+            <MenuIcon onClick={handleDrawerToggle} />
+            <Box
+              sx={{
+                display: "flex",
+                gap: "10px",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <BedtimeTwoToneIcon
+                sx={{ fill: "red", height: ".7em", cursor: "pointer" }}
+                onClick={toggleTheme}
+              />
               <LanguageButton />
             </Box>
           </Box>
@@ -94,9 +120,21 @@ export default function DrawerAppBar() {
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 5 }}>
             {navItems.map((item) => (
-              <Box key={item.label} sx={{ color: "#fff", fontSize: '12px', marginTop: '10px' }}>
+              <Box
+                key={item.label}
+                sx={{ color: "#fff", fontSize: "12px", marginTop: "10px" }}
+              >
                 {/* Show icon if available and dont display label for icons */}
-                {item.icon && <Box sx={{ color: "#fff" }}>{item.icon}</Box>}
+                {item.icon && (
+                  <Box
+                    sx={{ color: "#fff" }}
+                    onClick={
+                      item.icon && item.toggler ? toggleTheme : undefined
+                    }
+                  >
+                    {item.icon}
+                  </Box>
+                )}
                 <Box>{item.icon && item.label ? "" : item.label}</Box>
               </Box>
             ))}
@@ -120,9 +158,6 @@ export default function DrawerAppBar() {
           {drawer}
         </Drawer>
       </nav>
-      {/* <Box component="main" sx={{ p: 3 }}>
-        <Toolbar />
-      </Box> */}
     </Box>
   );
 }

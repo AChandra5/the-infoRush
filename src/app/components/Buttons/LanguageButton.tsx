@@ -3,8 +3,12 @@ import React, { useEffect, useState } from "react";
 import i18n from "../../../../public/Locales/i18n";
 
 const LanguageButton = () => {
-  const [language, setLanguage] = useState("en");
-
+  const [language, setLanguage] = useState<string>(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("language") || "en";
+    }
+    return "en";
+  });
   useEffect(() => {
     const storedLanguage = localStorage.getItem("language") || "en";
     setLanguage(storedLanguage);
