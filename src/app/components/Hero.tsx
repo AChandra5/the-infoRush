@@ -38,7 +38,7 @@ const HeroSection = () => {
           financial planning/
         </div>
         <CarouselRatio />
-        <SubmitButton>Read more</SubmitButton>
+        {/* <SubmitButton>Read more</SubmitButton> */}
       </div>
       <div>
         {!isViewportMobile() && (

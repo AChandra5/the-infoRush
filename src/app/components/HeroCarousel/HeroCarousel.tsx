@@ -26,7 +26,7 @@ const data = [
 export default function HeroCarousel() {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState<number>(0);
-  const theme = useTheme();
+  const theme: any = useTheme();
   console.log("theme", theme);
 
   const scrollToCard = (index: number) => {
@@ -117,25 +117,26 @@ export default function HeroCarousel() {
               scale: activeIndex === index ? 1 : 0.5,
               x: 0,
             }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            style={{ width: "80%" }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            // style={{ width: "70%" }}
           >
             <Card
               variant="outlined"
-              sx={{ width: "85%", margin: "auto", cursor: "pointer" }}
+              sx={{ margin: "auto", cursor: "pointer" }}
             >
               {/* Using MUI's CardMedia to maintain a 1:1 aspect ratio */}
-              <CardMedia
+              {/* <CardMedia
                 component="img"
                 image={`${item.src}?h=120&fit=crop&auto=format`}
                 srcSet={`${item.src}?h=120&fit=crop&auto=format&dpr=2 2x`}
                 alt={item.title}
                 sx={{
-                  aspectRatio: "1", // CSS property to enforce a 1:1 ratio
+                  aspectRatio: "2.3", // CSS property to enforce a 1:1 ratio
                   minWidth: 80,
                   objectFit: "cover",
+                  display: "none  ",
                 }}
-              />
+              /> */}
               <Box sx={{ mx: 2, my: 1 }}>
                 <Typography variant="subtitle1">{item.title}</Typography>
                 <Typography variant="body2" color="text.secondary">
@@ -169,18 +170,23 @@ export default function HeroCarousel() {
       </IconButton>
 
       {/* Dots */}
-      <Box sx={{ display: "flex", justifyContent: "center", mt: 1, gap: 1 }}>
+      <Box sx={{ display: "flex", justifyContent: "center", mt: 1, gap: 1, background: 'blue' }}>
         {data.map((_, index) => (
           <Box
             key={index}
             onClick={() => scrollToCard(index)}
             sx={{
-              width: 10,
-              height: 10,
+              width: 12,
+              height: 12,
               borderRadius: "50%",
-              backgroundColor: activeIndex === index ? "#FF6B6B" : "#ccc",
-              cursor: "pointer",
+              backgroundColor:
+              activeIndex === index
+                ? theme.palette.primary.main // highlight active dot
+                : theme.palette.grey[400],   // inactive dot color              cursor: "pointer",
               transition: "background-color 0.3s ease",
+              cursor: "pointer",
+              border: "1px solid black",
+              zIndex: 2,
             }}
           />
         ))}
