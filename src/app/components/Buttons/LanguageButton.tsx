@@ -1,6 +1,6 @@
 import { ToggleButton } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import i18n from "../../../../public/Locales/i18n";
+import i18n from "../../../Locales/i18n";
 
 const LanguageButton = () => {
   const [language, setLanguage] = useState<string>(() => {

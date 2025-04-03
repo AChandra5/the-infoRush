@@ -48,7 +48,7 @@ export default function HeroCarousel() {
       <Box
         sx={{
           display: "flex",
-          overflow: "hidden",
+          // overflow: "hidden",
           borderRadius: 2,
           boxShadow: 2,
           position: "relative",

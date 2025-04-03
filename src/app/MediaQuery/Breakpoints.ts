@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useMediaQuery, useTheme } from "@mui/material";
 
 //Not using anywhere, just for ref.
@@ -9,11 +10,11 @@ const defaultMuiBreakpoints = {
     xl: "1920px+"
 }
 
-const isViewportMobile = () => {
+const IsViewportMobile = () => {
     const theme = useTheme()
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
 
     return isMobile
 } 
 
-export default isViewportMobile
+export default IsViewportMobile

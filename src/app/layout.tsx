@@ -1,30 +1,27 @@
 "use client";
+
 import { ThemeProvider as MuiThemeProvider } from "@mui/material/styles";
-import { useContext, useEffect } from "react";
-import ThemeContextProvider, { ThemeContext } from "../../public/context/ThemeContextProvider";
-import { darkTheme, lightTheme, Themes } from "../../public/utils/constants";
-import i18n from "../../public/Locales/i18n";
+import { useContext } from "react";
+import ThemeContextProvider, { ThemeContext } from "./context/ThemeContextProvider";
+import { darkTheme, lightTheme, Themes } from "../utils/constants";
+import i18n from "../Locales/i18n";
 import { I18nextProvider } from "react-i18next";
 import Navbar from "./components/Navbar";
 import CssBaseline from "@mui/material/CssBaseline";
+import Script from "next/script";
+import { Toolbar } from "@mui/material";
 
 function AppWithTheme({ children }: { children: React.ReactNode }) {
   const { currentTheme } = useContext(ThemeContext);
   const theme = currentTheme === Themes.DARK ? darkTheme : lightTheme;
-  useEffect(() => {
-    i18n.changeLanguage("en");
-  }, []);
 
   return (
     <MuiThemeProvider theme={theme}>
-      <CssBaseline /> {/* Ensures Material UI styles are correctly applied */}
+      <CssBaseline />
       <I18nextProvider i18n={i18n}>
-        <html lang="en">
-          <body>
-            <Navbar />
-            <div>{children}</div>
-          </body>
-        </html>
+        <Navbar />
+        <Toolbar />
+        <main>{children}</main>
       </I18nextProvider>
     </MuiThemeProvider>
   );
@@ -32,8 +29,31 @@ function AppWithTheme({ children }: { children: React.ReactNode }) {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <ThemeContextProvider>
-      <AppWithTheme>{children}</AppWithTheme>
-    </ThemeContextProvider>
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <Script
+          id="theme-init"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function () {
+                try {
+                  const theme = localStorage.getItem("theme") || "light";
+                  document.documentElement.classList.remove("light", "dark");
+                  document.documentElement.classList.add(theme);
+                  document.body.style.backgroundColor = theme === "dark" ? "#121212" : "#ffffff";
+                  document.body.style.color = theme === "dark" ? "#ededed" : "#171717";
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
+      <body suppressHydrationWarning>
+        <ThemeContextProvider>
+          <AppWithTheme>{children}</AppWithTheme>
+        </ThemeContextProvider>
+      </body>
+    </html>
   );
 }

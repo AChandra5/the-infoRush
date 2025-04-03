@@ -2,27 +2,31 @@ import React from "react";
 import Button from "@mui/material/Button";
 
 interface SubmitButtonProps {
-  children: string;
+  text: string;
   bgColor?: string;
   hoverColor?: string;
   color?: string;
+  onClick: () => void;
 }
 
 const SubmitButton = ({
-  children,
+  text,
   bgColor = "#FFEFD2",
   hoverColor,
   color = '#000720',
+  onClick,
   ...props
+
 }: SubmitButtonProps) => {
   return (
     <Button
       variant="contained"
       sx={{
-        textTransform: "none",
+        textTransform: "capitalize",
         borderRadius: "8px",
         padding: "5px 15px",
         backgroundColor: bgColor,
+        fontWeight: "bold",
         color: color,
         "&:hover": {
           backgroundColor: hoverColor || bgColor,
@@ -30,8 +34,9 @@ const SubmitButton = ({
         },
       }}
       {...props}
+      onClick={onClick}
     >
-      {children}
+      {text}
     </Button>
   );
 };
