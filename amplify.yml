@@ -3,7 +3,7 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm ci
+        - npm install
     build:
       commands:
         - npm run build
@@ -15,4 +15,5 @@ frontend:
     paths:
       - node_modules/**
 
-autobuild: false
+# If you want to disable auto-build on every commit:
+# autobuild: false
