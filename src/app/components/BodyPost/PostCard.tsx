@@ -1,54 +1,11 @@
-// components/PostCard.tsx
 "use client";
 import React from "react";
 import styled from "@emotion/styled";
-
-const CardWrapper = styled.div`
-  position: relative;
-  width: 300px;
-  height: 200px;
-  border-radius: 8px;
-  // overflow: hidden;
-  font-family: sans-serif;
-  cursor: pointer;
-
-  .post-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.7;
-  }
-
-  .category-badge {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: #2d3748;
-    color: white;
-    padding: 4px 8px;
-    font-size: 12px;
-    border-radius: 4px;
-    text-transform: uppercase;
-  }
-
-  .post-title {
-    position: absolute;
-    bottom: 50px;
-    left: 16px;
-    right: 16px;
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-  }
-
-  .post-meta {
-    position: absolute;
-    bottom: 16px;
-    left: 16px;
-    font-size: 12px;
-    color: white;
-  }
-`;
+import Card from "@mui/material/Card";
+import CardMedia from "@mui/material/CardMedia";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import { useTheme } from "@mui/material";
 
 interface PostCardProps {
   image: string;
@@ -59,30 +16,90 @@ interface PostCardProps {
   categoryColor?: string;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const StyledCard = styled(Card)<{ theme?: any }>`
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  // width: 100%;
+  // background:yellow;
+
+  ${({ theme }) =>
+    theme.palette.mode === "dark"
+      ? `box-shadow: 0px 2px 6px rgba(255, 255, 255, 0.1);`
+      : `box-shadow: 0px 2px 6px #0D3483;`}
+
+  &:hover {
+    transform: scale(1.03);
+    ${({ theme }) =>
+      theme.palette.mode === "dark"
+        ? `box-shadow: 0px 6px 20px rgba(255, 255, 255, 0.25);`
+        : `box-shadow: 0px 6px 20px #0D3483;`}
+  }
+
+  .MuiCardMedia-root {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover .MuiCardMedia-root {
+    transform: scale(1.05);
+  }
+`;
+
+const categoryColorMap = {
+  Finance: "#7a6e4b",
+  Sports: "#f97316",
+  Technology: "#3b82f6",
+}
+
 const PostCard: React.FC<PostCardProps> = ({
   image,
   category,
   title,
-  author,
+  // author,
   date,
-  categoryColor = "#2d3748", // default gray
 }) => {
+  const theme = useTheme();
+  const categoryColor = categoryColorMap[category as keyof typeof categoryColorMap] || "#2d3748";
   return (
-    <CardWrapper>
-      <a href="localhost:3000/blogs" target="_blank">
-      <img className="post-image" src={image} alt={title} />
-      <div
-        className="category-badge"
-        style={{ backgroundColor: categoryColor }}
-      >
-        {category}
-      </div>
-      <div className="post-title">{title}</div>
-      <div className="post-meta">
-        {author} • {date}
-      </div>
-      </a>
-    </CardWrapper>
+    <a href="/blogs" target="_blank" style={{ textDecoration: "none" }}>
+      <StyledCard theme={theme} sx={{ flex: "1 1 280px", maxWidth: '100%' }}>
+        <CardMedia
+          component="img"
+          height="160"
+          image={image}
+          alt={title}
+          sx={{ objectFit: "inherit" }}
+        />
+        <CardContent sx={{ padding: "12px" }}>
+          <Typography
+            variant="caption"
+            sx={{
+              backgroundColor: categoryColor,
+              color: "#fff",
+              padding: "2px 8px",
+              borderRadius: "4px",
+              fontSize: "11px",
+              display: "inline-block",
+              textTransform: "uppercase",
+              fontWeight: "bold",
+              marginBottom: "6px",
+            }}
+          >
+            {category}
+          </Typography>
+          <Typography
+            gutterBottom
+            variant="body1"
+            component="div"
+            sx={{ fontWeight: 600 }}
+          >
+            {title}
+          </Typography>
+          <Typography variant="caption" color="text.secondary">
+             • {date}
+          </Typography>
+        </CardContent>
+      </StyledCard>
+    </a>
   );
 };
 

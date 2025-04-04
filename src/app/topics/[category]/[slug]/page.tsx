@@ -5,16 +5,16 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import Post from "@/app/components/Page/Post";
 
-interface BlogPostPageProps {
-  params: {
-    category: string;
-    slug: string;
-  };
+interface Props {
+  params: Promise<{category: string, slug: string}> 
 }
 
-
-export default async function BlogPost({ params }: BlogPostPageProps) {
-  const { category, slug } = await params;
+export default async function BlogPost(
+  props: Props 
+): Promise<React.JSX.Element> {
+  // Destructure inside the function body
+  const { category, slug } = await props.params;
+  console.log("props", props)
 
   const postPath = path.join(
     process.cwd(),
@@ -27,10 +27,15 @@ export default async function BlogPost({ params }: BlogPostPageProps) {
   if (!fs.existsSync(postPath)) return notFound();
 
   const fileContent = fs.readFileSync(postPath, "utf-8");
-  const { content, data } = matter(fileContent); // `data` contains frontmatter
+  const { content, data } = matter(fileContent);
 
   return (
-   <Post title={data.title} content={content} date={data.date} coverImage={data.coverImage}/>
+    <Post
+      title={data.title}
+      content={content}
+      date={data.date}
+      coverImage={data.coverImage}
+    />
   );
 }
 
@@ -55,13 +60,10 @@ export async function generateStaticParams() {
   return paths;
 }
 
-// This creates meta tags dynamically per post
-export async function generateMetadata({
-  params,
-}: {
-  params: { category: string; slug: string };
-}): Promise<Metadata> {
-  const { category, slug } = await params;
+export async function generateMetadata(
+  props: { params: { category: string; slug: string } }
+): Promise<Metadata> {
+  const { category, slug } = props.params;
 
   const postPath = path.join(
     process.cwd(),
@@ -79,7 +81,7 @@ export async function generateMetadata({
   }
 
   const fileContent = fs.readFileSync(postPath, "utf-8");
-  const { data } = matter(fileContent); // grabs frontmatter from Markdown
+  const { data } = matter(fileContent);
 
   return {
     title: data.title,

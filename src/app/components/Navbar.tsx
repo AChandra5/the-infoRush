@@ -65,7 +65,7 @@ export default function NavBar() {
         disableGutters
         sx={{
           backgroundColor:
-            theme.palette.mode === "dark" ? "#121212" : "#ffffff",
+            theme.palette.mode === "dark" ? "#1E1E1E" : "#ffffff",
           width: "100%",
           pr: 3,
           pl: 2,

@@ -1,3 +1,7 @@
+/* Add this to your global CSS */
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

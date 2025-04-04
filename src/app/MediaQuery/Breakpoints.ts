@@ -10,11 +10,13 @@ const defaultMuiBreakpoints = {
     xl: "1920px+"
 }
 
-const IsViewportMobile = () => {
-    const theme = useTheme()
-    const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
+// ✅ Correct: custom hook
 
-    return isMobile
-} 
+const useIsViewportMobile = () => {
+  const theme = useTheme();
+  return useMediaQuery(theme.breakpoints.down("sm"));
+};
 
-export default IsViewportMobile
+export default useIsViewportMobile;
+
+
