@@ -38,8 +38,8 @@ const ErrorWithImage = ({ image, title, text }: ErrorWithImageProps) => {
       {/* <h1 className="heading">404</h1> */}
       <h1 className="heading">{title}</h1>
       {/* <div className="description">{description}</div> */}
-      <SubmitButton text={text}  bgColor="#23CAAE" onClick={() => router.push("/")}/>
-    </ErrorWrapper>
+{  text &&    <SubmitButton text={text}  bgColor="#23CAAE" onClick={() => router.push("/")}/>
+}    </ErrorWrapper>
   );
 };
 

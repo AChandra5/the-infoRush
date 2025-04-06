@@ -1,19 +1,24 @@
 import HeroSection from "./components/Hero";
 import Topics from "./components/Topics/Topics";
-// import BodyPost from "./components/BodyPost/BodyPost";
 import ScrollTracker from "../events/ScrollTracker";
 import RecentPostsCarousal from "./components/RecentPosts/RecentPostsCarousal";
 import Footer from "./components/Footer/Footer";
+import ErrorWithImage from "./components/Errors/ErrorWithImage";
 
 export default function Home() {
   return (
     <>
-    <ScrollTracker/>
+    {/* <ScrollTracker/>
     <HeroSection/>
     <Topics />
-    {/* <BodyPost/> */}
     <RecentPostsCarousal/> 
-    <Footer/>
+    <Footer/> */}
+    <ErrorWithImage image={"/assets/under-construction.gif"} title={
+    <>
+      Page under construction.<br />
+      Please come back later!!
+    </>
+  } text={""} />
     </>
   );
 }

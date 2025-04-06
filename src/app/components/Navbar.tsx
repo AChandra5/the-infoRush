@@ -54,7 +54,6 @@ export default function NavBar() {
       component="nav"
       // position="fixed"
       sx={{
-        // background: "red",
         boxShadow: "none",
         backdropFilter: "blur(10px)",
         "& .MuiBox-root": { padding: "0px" },
@@ -70,6 +69,7 @@ export default function NavBar() {
           pr: 3,
           pl: 2,
           color: theme.palette.mode === "dark" ? "#fff" : "#0D3483",
+          borderBottom: ".5px solid #121212"
         }}
       >
         {/* mobile navbar */}
