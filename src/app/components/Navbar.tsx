@@ -72,7 +72,7 @@ export default function NavBar() {
           borderBottom: ".5px solid #121212"
         }}
       >
-        {/* mobile navbar */}
+        {/* mobile navbars*/}
         <Box
           sx={{
             display: { xs: "flex", sm: "none" },
