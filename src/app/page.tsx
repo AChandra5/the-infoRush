@@ -14,7 +14,7 @@ export default function Home() {
     <RecentPostsCarousal/> 
     <Footer/> */}
     <ErrorWithImage image={"/assets/under-construction.gif"} 
-      title="Page under construction.\nPlease come back later!!"
+      title="Page under construction. Please come back later!!"
    text={""} />
     </>
   );
