@@ -5,7 +5,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { useTheme } from "@mui/material/styles";
 import DraftsOutlinedIcon from "@mui/icons-material/DraftsOutlined";
-import XIcon from '@mui/icons-material/X';
+import XIcon from "@mui/icons-material/X";
 
 const FooterContainer = styled.div<{ theme: any }>`
   background-color: ${({ theme }) =>
@@ -102,48 +102,47 @@ const legalPoints: FooterLinks[] = [
 const infoLinks: FooterLinks[] = [
   {
     title: "Tech & Gadgets",
-    link: "/tech-gadgets",
+    link: "/categories/tech-gadgets",
   },
   {
     title: "Sports & Fitness Us",
-    link: "/sports-finance",
+    link: "/categories/sports-finance",
   },
   {
     title: "Finance & Insurance",
-    link: "/finance-insurance",
+    link: "/categories/finance-insurance",
   },
 ];
 
 const aboutLinks: any[] = [
-    {
-      type: "text",
-      title: "About Us",
-      label:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.dolor sit amet consectetur adipisicing elit. Quisquam, quosdolor sit amet consectetur adipisicing elit. Quisquam, quos.dolor sit amet consectetur adipisicing elit. Quisquam, quos.dolor sit amet consectetur adipisicing elit. Quisquam, quos",
-    },
-    {
-      type: "icons",
-      icons: [
-        {
-          type: "img",
-          src: "/assets/instagram.svg",
-          alt: "Instagram",
-          link: "/contact-us",
-        },
-        {
-          type: "icon",
-          icon: <DraftsOutlinedIcon />,
-          link: "/contact-us",
-        },
-        {
-          type: "icon",
-          icon: <XIcon />,
-          link: "/contact-us",
-        },
-      ],
-    },
-  ];
-  
+  {
+    type: "text",
+    title: "About Us",
+    label:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.dolor sit amet consectetur adipisicing elit. Quisquam, quosdolor sit amet consectetur adipisicing elit. Quisquam, quos.dolor sit amet consectetur adipisicing elit. Quisquam, quos.dolor sit amet consectetur adipisicing elit. Quisquam, quos",
+  },
+  {
+    type: "icons",
+    icons: [
+      {
+        type: "img",
+        src: "/assets/instagram.svg",
+        alt: "Instagram",
+        link: "/contact-us",
+      },
+      {
+        type: "icon",
+        icon: <DraftsOutlinedIcon />,
+        link: "/contact-us",
+      },
+      {
+        type: "icon",
+        icon: <XIcon />,
+        link: "/contact-us",
+      },
+    ],
+  },
+];
 
 const Footer = () => {
   const theme = useTheme();
@@ -162,20 +161,23 @@ const Footer = () => {
         <div className="social-media-about">
           <div className="points-title">Get in Touch</div>
           <div className="points-container">
-            {/* <div className="about-title">{aboutLinks[0].title}</div> */}
-            <div className="about-label"><span style={{fontWeight: "bold", fontSize: "0.8rem"}}>About infoRush: &nbsp;</span>{aboutLinks[0].label}</div>
+            <div className="about-label">
+              <span style={{ fontWeight: "bold", fontSize: "0.8rem" }}>
+                About infoRush: &nbsp;
+              </span>
+              {aboutLinks[0].label}
+            </div>
             <div className="social-icons">
-  {aboutLinks[1].icons.map((item: any, index: number) => (
-    <a href={item.link} key={index}>
-      {item.type === "img" ? (
-        <img src={item.src} alt={item.alt} />
-      ) : (
-        item.icon
-      )}
-    </a>
-  ))}
-</div>
-
+              {aboutLinks[1].icons.map((item: any, index: number) => (
+                <a href={item.link} key={index}>
+                  {item.type === "img" ? (
+                    <img src={item.src} alt={item.alt} />
+                  ) : (
+                    item.icon
+                  )}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
         <div className="information">

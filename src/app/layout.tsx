@@ -2,7 +2,9 @@
 
 import { ThemeProvider as MuiThemeProvider } from "@mui/material/styles";
 import { useContext } from "react";
-import ThemeContextProvider, { ThemeContext } from "./context/ThemeContextProvider";
+import ThemeContextProvider, {
+  ThemeContext,
+} from "./context/ThemeContextProvider";
 import { darkTheme, lightTheme, Themes } from "../utils/constants";
 import i18n from "../Locales/i18n";
 import { I18nextProvider } from "react-i18next";
@@ -27,10 +29,34 @@ function AppWithTheme({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Google Analytics Script */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-8HE80531NJ"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="gtag-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-8HE80531NJ', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
+
         <Script
           id="theme-init"
           strategy="beforeInteractive"

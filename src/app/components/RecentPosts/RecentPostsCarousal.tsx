@@ -173,7 +173,6 @@ const RecentPostsCarousel = () => {
   return (
     <CarouselWrapper>
       <SectionHeading>Recent Blog Posts</SectionHeading>
-      {/* <div style={{   overflow: "hidden" }}> */}
         <Slider {...settings}>
           {BodyPostCardDetails.map((card, index) => (
             <StyledCardWrapper theme={theme} key={`${card.title}-${index}`}>
@@ -181,7 +180,6 @@ const RecentPostsCarousel = () => {
             </StyledCardWrapper>
           ))}
         </Slider>
-      {/* </div> */}
     </CarouselWrapper>
   );
 };

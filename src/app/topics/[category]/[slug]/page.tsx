@@ -12,9 +12,8 @@ interface Props {
 export default async function BlogPost(
   props: Props 
 ): Promise<React.JSX.Element> {
-  // Destructure inside the function body
+  
   const { category, slug } = await props.params;
-  console.log("props", props)
 
   const postPath = path.join(
     process.cwd(),

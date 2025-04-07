@@ -67,18 +67,18 @@ const topics: Topic[] = [
   {
     label: "Tech & Gadgets",
     imageSrc: "/assets/tech-gadgets-img.png",
-    href: "",
+    href: "/categories/tech-gadgets",
   },
   {
     label: "Sports & Fitness",
-    imageSrc: "/assets/sports- fitness-img.png",
-    href: "",
+    imageSrc: "/assets/sports-fitness-img.png",
+    href: "/categories/sports-fitness",
   },
   {
     label: "Finance & Insurance",
     imageSrc: "/assets/finance-insurance-img.png",
-    href: "",
-  },
+    href: "/categories/finance-insurance",
+},
 ];
 
 // TODO: send topics as props later
@@ -101,6 +101,7 @@ const Topics = () => {
       <TopicsWrapper>
         {topics.map((topic: Topic, index: number) => (
           <StyledCard
+            onClick={() => window.location.href = topic.href}
             key={index}
             sx={{
               maxWidth: !isViewportMobile() ? 400 : 100,
