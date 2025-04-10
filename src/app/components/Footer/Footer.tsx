@@ -7,7 +7,7 @@ import { useTheme } from "@mui/material/styles";
 import DraftsOutlinedIcon from "@mui/icons-material/DraftsOutlined";
 import XIcon from "@mui/icons-material/X";
 
-const FooterContainer = styled.div<{ theme: any }>`
+const FooterWrapper = styled.div<{ theme: any }>`
   background-color: ${({ theme }) =>
     theme.palette.mode === "dark" ? "#1E1E1E" : "#FFFFFF"};
   padding: 20px;
@@ -20,16 +20,18 @@ const FooterContainer = styled.div<{ theme: any }>`
   .points-title {
     color: ${({ theme }) =>
       theme.palette.mode === "dark" ? "#FFFFFF" : "#0D3483"};
-    font-size: 1rem;
     font-weight: 700;
     margin-bottom: 10px;
+    font-size: 14px;
+
   }
   .point-item {
     color: ${({ theme }) =>
       theme.palette.mode === "dark" ? "#FFFFFF" : "#000000"};
-    font-size: 1rem;
     font-weight: 400;
     margin-bottom: 10px;
+    font-size: 14px;
+
 
     a {
       color: inherit;
@@ -54,6 +56,7 @@ const FooterContainer = styled.div<{ theme: any }>`
     font-size: 14px;
     color: ${({ theme }) => (theme.palette.mode === "dark" ? "#ccc" : "#333")};
     margin-bottom: 12px;
+    text-align: left;
   }
 
   .social-icons {
@@ -90,8 +93,8 @@ const legalPoints: FooterLinks[] = [
     link: "/privacy-policy",
   },
   {
-    title: "Terms & Conditions",
-    link: "/terms-of-service",
+    title: "Terms and Conditions",
+    link: "/terms-and-conditions",
   },
   {
     title: "Certifications",
@@ -119,7 +122,7 @@ const aboutLinks: any[] = [
     type: "text",
     title: "About Us",
     label:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.dolor sit amet consectetur adipisicing elit. Quisquam, quosdolor sit amet consectetur adipisicing elit. Quisquam, quos.dolor sit amet consectetur adipisicing elit. Quisquam, quos.dolor sit amet consectetur adipisicing elit. Quisquam, quos",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.dolor sit amet consectetur adipisicing elit. Quisquam, quosdolor sit amet consectetur adipisicing elit. You can contact us at care@inforush.com",
   },
   {
     type: "icons",
@@ -133,12 +136,12 @@ const aboutLinks: any[] = [
       {
         type: "icon",
         icon: <DraftsOutlinedIcon />,
-        link: "/contact-us",
+        link: "mailto:care@theinforush.com",
       },
       {
         type: "icon",
         icon: <XIcon />,
-        link: "/contact-us",
+        link: "https://x.com/theinforush1",
       },
     ],
   },
@@ -150,13 +153,13 @@ const Footer = () => {
   const mapLinks = (links: FooterLinks[]) => {
     return links.map((link) => (
       <div className="point-item" key={link.title}>
-        <a href={link.link}>{link.title}</a>
+        <a href={link.link} target="_blank">{link.title}</a>
       </div>
     ));
   };
 
   return (
-    <FooterContainer theme={theme}>
+    <FooterWrapper theme={theme}>
       <div className="footer-container">
         <div className="social-media-about">
           <div className="points-title">Get in Touch</div>
@@ -166,10 +169,11 @@ const Footer = () => {
                 About infoRush: &nbsp;
               </span>
               {aboutLinks[0].label}
+              &nbsp;You can contact us at <a href="mailto:care@inforush.com">care@inforush.com</a>
             </div>
             <div className="social-icons">
               {aboutLinks[1].icons.map((item: any, index: number) => (
-                <a href={item.link} key={index}>
+                <a href={item.link} key={index} target="_blank">
                   {item.type === "img" ? (
                     <img src={item.src} alt={item.alt} />
                   ) : (
@@ -190,7 +194,7 @@ const Footer = () => {
         </div>
       </div>
       &copy; {new Date().getFullYear()} The InfoRush. All rights reserved.
-    </FooterContainer>
+    </FooterWrapper>
   );
 };
 

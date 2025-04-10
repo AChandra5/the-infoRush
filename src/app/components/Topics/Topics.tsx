@@ -90,7 +90,7 @@ const Topics = () => {
         style={{
           // background: theme.palette.background.hero,
           padding: "16px 0 0 16px",
-          fontFamily: '"Roboto","Helvetica","Arial",sans-serif',
+          fontFamily: '"Futura","Roboto","Helvetica","Arial",sans-serif',
           color: theme.palette.text.primary,
           fontSize: "20px",
           fontWeight: "bold",

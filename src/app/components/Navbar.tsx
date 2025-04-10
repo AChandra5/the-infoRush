@@ -19,6 +19,9 @@ import { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContextProvider";
 import { useTheme } from "@mui/material/styles";
 import { useRouter } from "next/navigation";
+import { trackClickEvent } from "@/events/gtagEvents/CTATracker";
+import { usePathname } from "next/navigation";
+
 
 const drawerWidth = 240;
 
@@ -27,6 +30,7 @@ export default function NavBar() {
   const router = useRouter();
   const theme = useTheme();
   const { currentTheme, toggleTheme } = useContext(ThemeContext);
+  const pathname = usePathname();
 
   const navItems = [
     { label: "Tech & Gadgets", path: "/categories/tech-gadgets" },
@@ -52,17 +56,29 @@ export default function NavBar() {
   ];
 
   const handleDrawerToggle = () => {
+    trackClickEvent({
+      action: "navigation",
+      category: "navigation",
+      label: "menu_opened_mobile",
+    });
     setMobileOpen((prevState) => !prevState);
   };
 
   const webNavBar = () => (
     <AppBar
       component="nav"
+      position="fixed" // 👈 Makes it overlay the content
+      elevation={0}
       sx={{
+        backgroundColor:
+          theme.palette.mode === "dark"
+            ? "rgba(30,30,30,0.6)"
+            : "rgba(255,255,255,0.6)",
+        backdropFilter: "blur(12px)", // 👈 This creates the glass effect
+        WebkitBackdropFilter: "blur(12px)", // ✅ Safari support
         boxShadow: "none",
-        backdropFilter: "blur(10px)",
-        "& .MuiBox-root": { padding: "0px" },
         color: theme.palette.mode === "dark" ? "#fff" : "#0D3483",
+        zIndex: 1201, // above drawers and content
       }}
     >
       <Toolbar
@@ -70,10 +86,12 @@ export default function NavBar() {
         sx={{
           backgroundColor:
             theme.palette.mode === "dark" ? "#1E1E1E" : "#ffffff",
+          opacity: 0.9,
           width: "100%",
           pr: 3,
           pl: 2,
           color: theme.palette.mode === "dark" ? "#fff" : "#0D3483",
+          minHeight: '65px'
         }}
       >
         {/* mobile navbar */}
@@ -81,6 +99,7 @@ export default function NavBar() {
           sx={{
             display: { xs: "flex", sm: "none" },
             justifyContent: "space-between",
+            alignItems: "center",
             width: "100%",
             px: 2,
           }}
@@ -100,6 +119,11 @@ export default function NavBar() {
             style={{ height: "40px", objectFit: "contain", cursor: "pointer" }}
             alt="logo"
             onClick={() => {
+              trackClickEvent({
+                action: "navigation",
+                category: "navigation",
+                label: "home_logo_clicked_mobile",
+              });
               setTimeout(() => {
                 router.push("/");
               }, 1000);
@@ -109,16 +133,33 @@ export default function NavBar() {
             sx={{
               display: "flex",
               gap: "10px",
-              alignItems: "center",
+              alignItems: "left",
               justifyContent: "center",
             }}
           >
             {currentTheme === "dark" ? (
-              <LightModeIcon sx={{ cursor: "pointer" }} onClick={toggleTheme} />
+              <LightModeIcon
+                sx={{ cursor: "pointer" }}
+                onClick={() => {
+                  trackClickEvent({
+                    action: "navigation",
+                    category: "navigation",
+                    label: `theme toggled from ${currentTheme}`,
+                  });
+                  toggleTheme();
+                }}
+              />
             ) : (
               <BedtimeTwoToneIcon
                 sx={{ cursor: "pointer" }}
-                onClick={toggleTheme}
+                onClick={() => {
+                  trackClickEvent({
+                    action: "navigation",
+                    category: "navigation",
+                    label: `theme toggled from ${currentTheme}`,
+                  });
+                  toggleTheme();
+                }}
               />
             )}
           </Box>
@@ -138,9 +179,14 @@ export default function NavBar() {
               width="200px"
               height="60px"
               alt="logo"
-              style={{cursor: "pointer"}}
+              style={{ cursor: "pointer" }}
               onClick={() => {
-                  router.push("/");
+                trackClickEvent({
+                  action: "navigation",
+                  category: "navigation",
+                  label: `home_logo_clicked_web`,
+                });
+                router.push("/");
               }}
             />
           </Box>
@@ -172,7 +218,11 @@ export default function NavBar() {
                   fontWeight: "bold",
                   cursor: "pointer",
                   transition: "box-shadow 0.5s ease-in-out",
-                  ":hover": {
+                  borderBottom:
+                  item.path && pathname.includes(item.path)
+                    ? "2px solid #31cccc"
+                    : "none",                  
+                    ":hover": {
                     boxShadow:
                       theme.palette.mode === "dark"
                         ? "0px 2px 6px rgba(255, 255, 255, 0.9)"
@@ -184,13 +234,18 @@ export default function NavBar() {
                   },
                 }}
                 onClick={() => {
-                  if(!item.toggler && item.label === "About") {
+                  trackClickEvent({
+                    action: "click",
+                    category: "navigation_from_nav_bar",
+                    label: item.label,
+                  });
+
+                  if (!item.toggler && item.label === "About") {
                     window.scrollTo({
                       top: document.body.scrollHeight,
-                      behavior: "smooth"
-                    })
-                  }
-                  else if (!item.toggler && item.path) {
+                      behavior: "smooth",
+                    });
+                  } else if (!item.toggler && item.path) {
                     router.push(item.path);
                   }
                 }}
@@ -219,27 +274,30 @@ export default function NavBar() {
           },
         }}
       >
-        <Box onClick={handleDrawerToggle} sx={{ textAlign: "center", cursor: "pointer" }}>
+        <Box
+          onClick={handleDrawerToggle}
+          sx={{ textAlign: "center", cursor: "pointer" }}
+        >
           <img
             src={`/assets/inforush-${currentTheme}-logo.svg`}
             style={{ height: "60px", objectFit: "contain" }}
             alt="logo"
           />
-          <Divider />
+          {/* <Divider /> */}
           <List>
             {navItems.map((item) => (
               <React.Fragment key={item.label}>
                 <ListItem key={item.label} disablePadding>
                   <ListItemButton
                     key={item.label}
-                    sx={{ textAlign: "center" }}
+                    sx={{ textAlign: "left" }}
                     onClick={() => {
                       if (item.toggler) toggleTheme();
                       else if (item.path) router.push(item.path);
-                      else if( !item.toggler && item.label === "About") {
+                      else if (!item.toggler && item.label === "About") {
                         window.scrollTo({
                           top: document.body.scrollHeight,
-                          behavior: "smooth"
+                          behavior: "smooth",
                         });
                       }
                     }}
@@ -248,7 +306,11 @@ export default function NavBar() {
                       <ListItemText
                         key={item.label}
                         primary={item.label}
-                        sx={{ fontSize: "14px" }}
+                        sx={{ fontSize: "14px", 
+                          color:
+                          item.path && pathname.includes(item.path)
+                            ? " #31cccc"
+                            : "none", }}
                       />
                     )}
                   </ListItemButton>
@@ -261,7 +323,6 @@ export default function NavBar() {
       </Drawer>
     </nav>
   );
-
 
   return (
     <Box sx={{ padding: "0px" }}>

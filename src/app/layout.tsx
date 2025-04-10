@@ -6,12 +6,19 @@ import ThemeContextProvider, {
   ThemeContext,
 } from "./context/ThemeContextProvider";
 import { darkTheme, lightTheme, Themes } from "../utils/constants";
-import i18n from "../Locales/i18n";
-import { I18nextProvider } from "react-i18next";
 import Navbar from "./components/Navbar";
 import CssBaseline from "@mui/material/CssBaseline";
 import Script from "next/script";
 import { Toolbar } from "@mui/material";
+import ScrollTracker from "@/events/gtagEvents/ScrollTracker";
+
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
 
 function AppWithTheme({ children }: { children: React.ReactNode }) {
   const { currentTheme } = useContext(ThemeContext);
@@ -20,11 +27,9 @@ function AppWithTheme({ children }: { children: React.ReactNode }) {
   return (
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
-      <I18nextProvider i18n={i18n}>
-        <Navbar />
-        <Toolbar />
-        <main>{children}</main>
-      </I18nextProvider>
+      <Navbar />
+      <Toolbar />
+      <main>{children}</main>
     </MuiThemeProvider>
   );
 }
@@ -75,8 +80,17 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body suppressHydrationWarning>
+      <body
+        className={inter.className}
+        suppressHydrationWarning
+        style={{
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
         <ThemeContextProvider>
+          <ScrollTracker />
           <AppWithTheme>{children}</AppWithTheme>
         </ThemeContextProvider>
       </body>
