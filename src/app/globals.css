@@ -9,6 +9,21 @@
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
+:root {
+  --table-bg: #ffffff;
+  --table-header-bg: #f4f4f4;
+  --table-text: #000000;
+  --button-bg: #0D3483;
+}
+
+[data-theme='dark'] {
+  --table-bg: #1E1E1E;
+  --table-header-bg: #2A2A2A;
+  --table-text: #ffffff;
+  --button-bg: #4478f2;
+}
+
+
 html,
 body {
   /* height: 100%; */

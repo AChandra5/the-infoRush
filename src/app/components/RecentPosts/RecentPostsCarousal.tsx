@@ -88,7 +88,7 @@ const SectionHeading = styled.h2`
 `;
 
 const StyledCardWrapper = styled.div<{ theme: any }>`
-  width: 100%;
+  width: 80%;
   height: 100%; // ensures cards stretch
   display: flex;
   flex-direction: column;
@@ -178,6 +178,9 @@ const settings = {
   pauseOnHover: true,
   centerMode: true,
   centerPadding: "0px",
+  swipe: true,          // ✅ enables swipe on all devices
+  touchMove: true,      // ✅ allows finger dragging
+  draggable: true,      // ✅ mouse dragging on desktop
   responsive: [
     {
       breakpoint: 1024,

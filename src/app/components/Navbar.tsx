@@ -57,7 +57,7 @@ export default function NavBar() {
 
   const handleDrawerToggle = () => {
     trackClickEvent({
-      action: "navigation",
+      action: "click",
       category: "navigation",
       label: "menu_opened_mobile",
     });
@@ -120,7 +120,7 @@ export default function NavBar() {
             alt="logo"
             onClick={() => {
               trackClickEvent({
-                action: "navigation",
+                action: "click",
                 category: "navigation",
                 label: "home_logo_clicked_mobile",
               });
@@ -142,8 +142,8 @@ export default function NavBar() {
                 sx={{ cursor: "pointer" }}
                 onClick={() => {
                   trackClickEvent({
-                    action: "navigation",
-                    category: "navigation",
+                    action: "click",
+                    category: "theme_usage",
                     label: `theme toggled from ${currentTheme}`,
                   });
                   toggleTheme();
@@ -154,8 +154,8 @@ export default function NavBar() {
                 sx={{ cursor: "pointer" }}
                 onClick={() => {
                   trackClickEvent({
-                    action: "navigation",
-                    category: "navigation",
+                    action: "click",
+                    category: "theme_usage",
                     label: `theme toggled from ${currentTheme}`,
                   });
                   toggleTheme();
@@ -182,7 +182,7 @@ export default function NavBar() {
               style={{ cursor: "pointer" }}
               onClick={() => {
                 trackClickEvent({
-                  action: "navigation",
+                  action: "click",
                   category: "navigation",
                   label: `home_logo_clicked_web`,
                 });
@@ -228,6 +228,7 @@ export default function NavBar() {
                         ? "0px 2px 6px rgba(255, 255, 255, 0.9)"
                         : "0px 2px 6px #0D3483",
                     fontSize: "20px",
+    transition: "transform 0.5s ease",
                     transform: "scale(1.05)",
                     padding: "5px",
                     borderRadius: "10px",
@@ -236,7 +237,7 @@ export default function NavBar() {
                 onClick={() => {
                   trackClickEvent({
                     action: "click",
-                    category: "navigation_from_nav_bar",
+                    category: "navigation_from_nav_bar_to_gist",
                     label: item.label,
                   });
 

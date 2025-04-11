@@ -23,7 +23,7 @@ export default function ClientHome() {
     trackClickEvent({
       action: "page_load",
       category: "home_page",
-      label: "",
+      label: "capture referrer for home page",
       path: `referrer is ${document.referrer}`
     });
   })

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import * as React from "react";
 import Card from "@mui/material/Card";
@@ -7,7 +6,6 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import CardActionArea from "@mui/material/CardActionArea";
 import styled from "@emotion/styled";
-import isViewportMobile from "../../MediaQuery/Breakpoints";
 import { useTheme } from "@mui/material/styles";
 
 interface Topic {
@@ -17,51 +15,54 @@ interface Topic {
 }
 
 const TopicsWrapper = styled.div`
-  // background: ${({ theme }: any) => theme.palette.background.hero};
-  padding-top: 20px;
-  padding-bottom: 20px;
-  width: 100%;
-
-  /* Apply flex to the container instead of each card */
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  gap: 16px;
-  //   justify-content: center; /* Centering the cards */
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-rdius:25px;
+
+  @media (max-width: 1024px) {
+    justify-content: center;
+    padding: 20px 24px;
+  }
+
+  @media (max-width: 600px) {
+    padding: 20px 16px;
+  }
 `;
 
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const StyledCard = styled(Card)<{ theme?: any }>`
+  flex: 1 1 30%;
+  max-width: 360px;
+  min-width: 260px;
+  height: 280px;
+  border-radius: 25px;
+  overflow: hidden; // 🔑 Ensures content respects the border-radius
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   ${({ theme }) =>
     theme.palette.mode === "dark"
-      ? `
-    box-shadow: 0px 2px 6px rgba(255, 255, 255, 0.1);
-  `
-      : `
-    box-shadow: 0px 2px 6px #0D3483;
-  `}
+      ? `box-shadow: 0px 2px 6px rgba(255, 255, 255, 0.1);`
+      : `box-shadow: 0px 2px 6px #0D3483;`}
 
   &:hover {
     transform: scale(1.03);
-
     ${({ theme }) =>
       theme.palette.mode === "dark"
         ? `box-shadow: 0px 6px 20px rgba(255, 255, 255, 0.25);`
         : `box-shadow: 0px 6px 20px #0D3483;`}
   }
 
-  .MuiCardMedia-root {
-    transition: transform 0.3s ease;
-  }
-
-  &:hover .MuiCardMedia-root {
-    transform: scale(1.05);
+  @media (max-width: 768px) {
+    width: 100%;
+    flex: 1 1 100%;
   }
 `;
-
-
-
 
 const topics: Topic[] = [
   {
@@ -78,41 +79,36 @@ const topics: Topic[] = [
     label: "Finance & Insurance",
     imageSrc: "/assets/finance-insurance-img.png",
     href: "/categories/finance-insurance",
-},
+  },
 ];
 
-// TODO: send topics as props later
 const Topics = () => {
   const theme = useTheme();
+
   return (
     <>
       <div
         style={{
-          // background: theme.palette.background.hero,
-          padding: "16px 0 0 16px",
+          padding: "16px",
           fontFamily: '"Futura","Roboto","Helvetica","Arial",sans-serif',
           color: theme.palette.text.primary,
           fontSize: "20px",
           fontWeight: "bold",
         }}
       >
-        {/* Explore Topics */}
+        Explore Topics
       </div>
+
       <TopicsWrapper>
-        {topics.map((topic: Topic, index: number) => (
+        {topics.map((topic, index) => (
           <StyledCard
-            onClick={() => window.location.href = topic.href}
             key={index}
-            sx={{
-              maxWidth: !isViewportMobile() ? 400 : 100,
-              maxHeight: !isViewportMobile() ? 400 : 200,
-              textAlign: "center",
-              flex: "1 1 180px",
-            }}
+            theme={theme}
+            onClick={() => (window.location.href = topic.href)}
           >
             <CardContent
               sx={{
-                padding: "3px",
+                padding: "8px",
                 minHeight: "50px",
                 backgroundColor:
                   theme.palette.mode === "dark" ? "#141414" : "#ffffff",
@@ -135,9 +131,8 @@ const Topics = () => {
             <CardActionArea>
               <CardMedia
                 component="img"
-                height="100%"
-                width="100%"
-                image={topic.imageSrc || "/static/images/cards/default.jpg"} // Default image
+                height="220"
+                image={topic.imageSrc}
                 alt={topic.label}
               />
             </CardActionArea>
