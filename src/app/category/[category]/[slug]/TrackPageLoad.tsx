@@ -1,10 +1,20 @@
-"use client";
-import { trackClickEvent } from "@/events/gtagEvents/CTATracker";
+'use client';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const TrackPageLoad = ({ action, category, label }: any) => {
-  trackClickEvent({action, category, label});
-  return null;
-};
+import { useEffect } from 'react';
+import { trackClickEvent } from '@/events/gtagEvents/CTATracker';
 
-export default TrackPageLoad;
+interface Props {
+  action: string;
+  category: string;
+  label: string;
+}
+
+export default function TrackPageLoad({ action, category, label }: Props) {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      trackClickEvent({action, category, label});
+    }
+  }, [action, category, label]);
+
+  return null; // nothing to render
+}
