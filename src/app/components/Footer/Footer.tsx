@@ -166,7 +166,7 @@ const aboutLinks: any[] = [
         type: "img",
         src: "/assets/instagram.svg",
         alt: "Instagram",
-        link: "/contact-us",
+        link: "https://www.instagram.com/the_inforush/?igsh=MXNtYzFiYXllcGl0eg%3D%3D&utm_source=qr",
       },
       {
         type: "icon",
