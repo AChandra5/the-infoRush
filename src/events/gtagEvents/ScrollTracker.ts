@@ -27,7 +27,7 @@ const ScrollTracker = () => {
       if (typeof window.gtag === "function") {
         if (!hasScrolled50 && scrolled > 0.5) {
           hasScrolled50 = true;
-          console.log("50")
+          // console.log("50")
           window.gtag("event", "scroll_50", {
             event_category: "Engagement",
             event_label: `50% scrolled - ${pathname}`,

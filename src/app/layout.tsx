@@ -11,6 +11,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Script from "next/script";
 import { Toolbar } from "@mui/material";
 import ScrollTracker from "@/events/gtagEvents/ScrollTracker";
+import { GA_MEASUREMENT_ID } from "../utils/constants";
 
 import { Inter } from "next/font/google";
 
@@ -44,9 +45,9 @@ export default function RootLayout({
       <head>
         {/* Google Analytics Script */}
         <link rel="icon" href="/assets/favicon1.png"></link>
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-8HE80531NJ"
-          strategy="afterInteractive"
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
         />
         <Script
           id="gtag-init"
@@ -56,8 +57,7 @@ export default function RootLayout({
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-8HE80531NJ', {
-                page_path: window.location.pathname,
+        gtag('config', '${GA_MEASUREMENT_ID}', {                page_path: window.location.pathname
               });
             `,
           }}
