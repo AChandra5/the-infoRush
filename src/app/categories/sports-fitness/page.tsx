@@ -19,6 +19,12 @@ const categoriesData = [
     gist: "Discover the most underrated but iconic moments in Indian cricket history—from Agarkar's spell in Adelaide to Sachin's desert storm. Relive forgotten glories here.",
     href: genereateHref('sports-fitness','under-rated-iconic-indian-cricket-moments')
   },
+  {
+    imgSrc: "/assets/powerplay-cover.jpg",
+    title: "Power Play Restrictions Explained",
+    gist: "Let us understand the rules of powerplay in T20I and ODI's. We'll understtand the past rules, recent modifications and the importance of powerplay and how it can shape the game plan. ",
+    href: genereateHref('sports-fitness','powerplay-rules-explained')
+  },
 ];
 
 const SportsAndFitness = () => {

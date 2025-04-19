@@ -17,6 +17,12 @@ const categoriesData = [
     gist: "Best monitors for office, personal use in 2025. This article gives you indepth knowledge about the technical specs and makes you self reliant to choose your own monitor that fits your style.",
     href: genereateHref("tech-gadgets", "best-27inch-monitor-2025"),
   },
+  {
+    imgSrc: "/assets/robo-mop.jpg",
+      title: "Best Robot Vaccum Cleaners in India under 25,000",
+      gist: "Best mid range Robot Vaccum Cleaners for home use in 2025. This article gives you indepth knowledge about the technical specs and makes you self reliant to choose your own robot cleaner that fits your home.",
+      href: genereateHref("tech-gadgets", "best-robot-vaccum-cleaners-in-india"),
+    },
 ];
 
 const TechAndGadgets = () => {

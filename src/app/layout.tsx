@@ -43,6 +43,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         {/* Google Analytics Script */}
+        <link rel="icon" href="/assets/favicon1.png"></link>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-8HE80531NJ"
           strategy="afterInteractive"

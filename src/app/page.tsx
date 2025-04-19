@@ -2,10 +2,12 @@ import ClientHome from "./ClientHome";
 
 export const metadata = {
   title: "The Inforush",
-  description: "Your site description", //TODO: Add description
+  description: "InfoRush brings you quick, needful knowledge pills on tech, finance, fitness, and cricket — all in one place. We strive to provide you real and bias-free recommendations.", 
+  keywords:["technology, gadgets, finance, insurance, sports, cricket, fitness"],
   openGraph: {
     title: "The Inforush",
-    description: "Your site description", //TODO: Add description
+    description: "InfoRush brings you quick, needful knowledge pills on tech, finance, fitness, and cricket — all in one place. We strive to provide you real and bias-free recommendations.", 
+    keywords:["technology, gadgets, finance, insurance, sports, cricket, fitness"],
     url: "https://theinforush.com",
     images: [
       {
@@ -19,7 +21,8 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "The Inforush",
-    description: "Your site description", //TODO: Add description
+    description: "InfoRush brings you quick, needful knowledge pills on tech, finance, fitness, and cricket — all in one place. We strive to provide you real and bias-free recommendations.",
+    keywords:["technology, gadgets, finance, insurance, sports, cricket, fitness"],
     images: ["https://www.theinforush.com/assets/favico.png"],
   },
   icons: {
@@ -35,7 +38,7 @@ export const metadata = {
         type: "image/png",
       },
     ],
-    apple: "/apple-touch-icon.png", // optional
+    apple: "/assets/favico.png", 
   },
 };
 

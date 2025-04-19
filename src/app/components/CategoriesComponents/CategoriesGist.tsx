@@ -144,37 +144,41 @@ const CategoriesGist = ({ categoriesData }: CategoriesGistProps) => {
     <>
       <CategoriesGistWrapper>
         {categoriesData.map((data: categoriesData, index) => (
-          <div className="data-container" key={index}>
-            <div className="topic-image">
-              <a
-                href={data.href}
-                onClick={() =>
-                  trackClickEvent({
-                    action: "click",
-                    category: "navigation_from_gist_image_to_post",
-                    label: data.title,
-                  })
-                }
-              >
-                <img src={data.imgSrc} alt={data.title} />
-              </a>
-            </div>
-            <div>
-              <a
-                href={data.href}
-                onClick={() =>
-                  trackClickEvent({
-                    action: "click",
-                    category: "navigation_from_gist_title_to_post",
-                    label: data.title,
-                  })
-                }
-              >
-                <div className="topic-title">{data.title}</div>
-              </a>
-              <div className="topic-gist">{data.gist}</div>
-            </div>
-          </div>
+          <>
+            <a href={data.href}>
+              <div className="data-container" key={index}>
+                <div className="topic-image">
+                  <a
+                    href={data.href}
+                    onClick={() =>
+                      trackClickEvent({
+                        action: "click",
+                        category: "navigation_from_gist_image_to_post",
+                        label: data.title,
+                      })
+                    }
+                  >
+                    <img src={data.imgSrc} alt={data.title} />
+                  </a>
+                </div>
+                <div>
+                  <a
+                    href={data.href}
+                    onClick={() =>
+                      trackClickEvent({
+                        action: "click",
+                        category: "navigation_from_gist_title_to_post",
+                        label: data.title,
+                      })
+                    }
+                  >
+                    <div className="topic-title">{data.title}</div>
+                  </a>
+                  <div className="topic-gist">{data.gist}</div>
+                </div>
+              </div>
+            </a>
+          </>
         ))}
         <Footer />
       </CategoriesGistWrapper>

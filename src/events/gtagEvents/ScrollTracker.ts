@@ -7,7 +7,7 @@ const ScrollTracker = () => {
   const pathname = usePathname();
   useEffect(() => {
     // Fire blog view only if gtag is available
-    console.log("Blog view test");
+    // console.log("Blog view test");
     if (typeof window.gtag === "function") {
       window.gtag("event", "blog_view", {
         event_category: "Engagement",
