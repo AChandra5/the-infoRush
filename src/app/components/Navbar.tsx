@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
@@ -14,50 +15,70 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import BedtimeTwoToneIcon from "@mui/icons-material/BedtimeTwoTone";
 import LightModeIcon from "@mui/icons-material/LightMode";
-// import LanguageButton from "./Buttons/LanguageButton";
-// import { useTranslation } from "react-i18next";
 import { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContextProvider";
 import { useTheme } from "@mui/material/styles";
+import { useRouter } from "next/navigation";
+import { trackClickEvent } from "@/events/gtagEvents/CTATracker";
+import { usePathname } from "next/navigation";
+
 
 const drawerWidth = 240;
 
 export default function NavBar() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  // const { t } = useTranslation();
+  const router = useRouter();
   const theme = useTheme();
-  console.log("theme", theme);
   const { currentTheme, toggleTheme } = useContext(ThemeContext);
-  console.log(currentTheme);
+  const pathname = usePathname();
+
   const navItems = [
-    { label: "Tech & Gadgets" },
-    { label: "Sports & Fitness" },
-    { label: "Finance & Insurance" },
-    { label: "About" },
+    { label: "Tech & Gadgets", path: "/categories/tech-gadgets" },
+    { label: "Sports & Fitness", path: "/categories/sports-fitness" },
+    { label: "Finance & Insurance", path: "/categories/finance-insurance" },
+    { label: "About", path: "" },
     {
       label: "mode",
       icon: {
-        dark: <BedtimeTwoToneIcon sx={{ color: "#000000", fill: "#121212", cursor: "pointer" }} />,
-        light: <LightModeIcon sx={{ color: "#FFFFFF", fill: "#FFFFFF", cursor: "pointer" }} />,
+        dark: (
+          <BedtimeTwoToneIcon
+            sx={{ color: "#000000", fill: "#121212", cursor: "pointer" }}
+          />
+        ),
+        light: (
+          <LightModeIcon
+            sx={{ color: "#FFFFFF", fill: "#FFFFFF", cursor: "pointer" }}
+          />
+        ),
       },
       toggler: true,
     },
-    // { label: t("language"), icon: <LanguageButton /> },
   ];
 
   const handleDrawerToggle = () => {
+    trackClickEvent({
+      action: "click",
+      category: "navigation",
+      label: "menu_opened_mobile",
+    });
     setMobileOpen((prevState) => !prevState);
   };
 
   const webNavBar = () => (
     <AppBar
       component="nav"
-      // position="fixed"
+      position="fixed" // 👈 Makes it overlay the content
+      elevation={0}
       sx={{
+        backgroundColor:
+          theme.palette.mode === "dark"
+            ? "rgba(30,30,30,0.6)"
+            : "rgba(255,255,255,0.6)",
+        backdropFilter: "blur(12px)", // 👈 This creates the glass effect
+        WebkitBackdropFilter: "blur(12px)", // ✅ Safari support
         boxShadow: "none",
-        backdropFilter: "blur(10px)",
-        "& .MuiBox-root": { padding: "0px" },
         color: theme.palette.mode === "dark" ? "#fff" : "#0D3483",
+        zIndex: 1201, // above drawers and content
       }}
     >
       <Toolbar
@@ -65,11 +86,12 @@ export default function NavBar() {
         sx={{
           backgroundColor:
             theme.palette.mode === "dark" ? "#1E1E1E" : "#ffffff",
+          opacity: 0.9,
           width: "100%",
           pr: 3,
           pl: 2,
           color: theme.palette.mode === "dark" ? "#fff" : "#0D3483",
-          borderBottom: ".5px solid #121212"
+          minHeight: '65px'
         }}
       >
         {/* mobile navbars*/}
@@ -77,10 +99,9 @@ export default function NavBar() {
           sx={{
             display: { xs: "flex", sm: "none" },
             justifyContent: "space-between",
+            alignItems: "center",
             width: "100%",
             px: 2,
-            // height: '70px',
-            // margin: '20px'
           }}
         >
           <MenuIcon
@@ -95,26 +116,52 @@ export default function NavBar() {
           />
           <img
             src={`/assets/inforush-${currentTheme}-logo.svg`}
-            style={{ height: "40px", objectFit: "contain" }}
+            style={{ height: "40px", objectFit: "contain", cursor: "pointer" }}
             alt="logo"
+            onClick={() => {
+              trackClickEvent({
+                action: "click",
+                category: "navigation",
+                label: "home_logo_clicked_mobile",
+              });
+              setTimeout(() => {
+                router.push("/");
+              }, 1000);
+            }}
           />
           <Box
             sx={{
               display: "flex",
               gap: "10px",
-              alignItems: "center",
+              alignItems: "left",
               justifyContent: "center",
             }}
           >
             {currentTheme === "dark" ? (
-              <LightModeIcon sx={{ cursor: "pointer" }} onClick={toggleTheme} />
+              <LightModeIcon
+                sx={{ cursor: "pointer" }}
+                onClick={() => {
+                  trackClickEvent({
+                    action: "click",
+                    category: "theme_usage",
+                    label: `theme toggled from ${currentTheme}`,
+                  });
+                  toggleTheme();
+                }}
+              />
             ) : (
               <BedtimeTwoToneIcon
                 sx={{ cursor: "pointer" }}
-                onClick={toggleTheme}
+                onClick={() => {
+                  trackClickEvent({
+                    action: "click",
+                    category: "theme_usage",
+                    label: `theme toggled from ${currentTheme}`,
+                  });
+                  toggleTheme();
+                }}
               />
             )}
-            {/* <LanguageButton /> */}
           </Box>
         </Box>
         <Typography
@@ -126,13 +173,21 @@ export default function NavBar() {
             padding: "0px",
           }}
         >
-          {/* <h1>InfoRush</h1> */}
           <Box style={{ marginTop: "7px" }}>
             <img
               src={`/assets/inforush-${currentTheme}-logo.svg`}
               width="200px"
               height="60px"
               alt="logo"
+              style={{ cursor: "pointer" }}
+              onClick={() => {
+                trackClickEvent({
+                  action: "click",
+                  category: "navigation",
+                  label: `home_logo_clicked_web`,
+                });
+                router.push("/");
+              }}
             />
           </Box>
         </Typography>
@@ -162,16 +217,38 @@ export default function NavBar() {
                   fontSize: "18px",
                   fontWeight: "bold",
                   cursor: "pointer",
-                  transition: "box-shadow 0.3s ease-in-out",
-                  ":hover": {
+                  transition: "box-shadow 0.5s ease-in-out",
+                  borderBottom:
+                  item.path && pathname.includes(item.path)
+                    ? "2px solid #31cccc"
+                    : "none",                  
+                    ":hover": {
                     boxShadow:
                       theme.palette.mode === "dark"
                         ? "0px 2px 6px rgba(255, 255, 255, 0.9)"
                         : "0px 2px 6px #0D3483",
                     fontSize: "20px",
+    transition: "transform 0.5s ease",
                     transform: "scale(1.05)",
                     padding: "5px",
+                    borderRadius: "10px",
                   },
+                }}
+                onClick={() => {
+                  trackClickEvent({
+                    action: "click",
+                    category: "navigation_from_nav_bar_to_gist",
+                    label: item.label,
+                  });
+
+                  if (!item.toggler && item.label === "About") {
+                    window.scrollTo({
+                      top: document.body.scrollHeight,
+                      behavior: "smooth",
+                    });
+                  } else if (!item.toggler && item.path) {
+                    router.push(item.path);
+                  }
                 }}
               >
                 {item.icon && item.label ? "" : item.label}
@@ -195,31 +272,46 @@ export default function NavBar() {
           "& .MuiDrawer-paper": {
             boxSizing: "border-box",
             width: drawerWidth,
-            // position: "fixed",
           },
         }}
       >
-        <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+        <Box
+          onClick={handleDrawerToggle}
+          sx={{ textAlign: "center", cursor: "pointer" }}
+        >
           <img
             src={`/assets/inforush-${currentTheme}-logo.svg`}
             style={{ height: "60px", objectFit: "contain" }}
             alt="logo"
           />
-          <Divider />
+          {/* <Divider /> */}
           <List>
             {navItems.map((item) => (
               <React.Fragment key={item.label}>
                 <ListItem key={item.label} disablePadding>
                   <ListItemButton
                     key={item.label}
-                    sx={{ textAlign: "center" }}
-                    onClick={item.toggler ? toggleTheme : undefined}
+                    sx={{ textAlign: "left" }}
+                    onClick={() => {
+                      if (item.toggler) toggleTheme();
+                      else if (item.path) router.push(item.path);
+                      else if (!item.toggler && item.label === "About") {
+                        window.scrollTo({
+                          top: document.body.scrollHeight,
+                          behavior: "smooth",
+                        });
+                      }
+                    }}
                   >
                     {item.label !== "mode" && (
                       <ListItemText
                         key={item.label}
                         primary={item.label}
-                        sx={{ fontSize: "14px" }}
+                        sx={{ fontSize: "14px", 
+                          color:
+                          item.path && pathname.includes(item.path)
+                            ? " #31cccc"
+                            : "none", }}
                       />
                     )}
                   </ListItemButton>
@@ -228,7 +320,7 @@ export default function NavBar() {
               </React.Fragment>
             ))}
           </List>
-        </Box>{" "}
+        </Box>
       </Drawer>
     </nav>
   );

@@ -3,14 +3,11 @@
 import React from "react";
 import Slider from "react-slick";
 import styled from "@emotion/styled";
-import PostCard from "../BodyPost/PostCard";
+import PostCard from "./PostCard";
 import { useTheme } from "@mui/material/styles";
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-
-
+import { genereateHref } from "@/utils/commonFunctions";
 
 const CarouselWrapper = styled.section<{ theme?: any }>`
   width: 100%;
@@ -30,7 +27,7 @@ const CarouselWrapper = styled.section<{ theme?: any }>`
   }
 
   .slick-slide {
-    padding: 0 20px; /* keeps spacing between cards */
+    padding: 0 4px; /* keeps spacing between cards */
   }
 
   .slick-prev,
@@ -71,7 +68,8 @@ const CarouselWrapper = styled.section<{ theme?: any }>`
 
     li button:before {
       font-size: 10px;
-      color: ${({ theme }) => (theme.palette.mode === "dark" ? "#fff" : "#fff")};
+      color: ${({ theme }) =>
+        theme.palette.mode === "dark" ? "#fff" : "#fff"};
       opacity: 0.6;
     }
 
@@ -82,7 +80,6 @@ const CarouselWrapper = styled.section<{ theme?: any }>`
   }
 `;
 
-
 const SectionHeading = styled.h2`
   font-size: 28px;
   font-weight: bold;
@@ -91,6 +88,13 @@ const SectionHeading = styled.h2`
 `;
 
 const StyledCardWrapper = styled.div<{ theme: any }>`
+  width: 80%;
+  height: 100%; // ensures cards stretch
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 350px;
+  margin: auto;
   border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
@@ -103,7 +107,6 @@ const StyledCardWrapper = styled.div<{ theme: any }>`
 
   &:hover {
     transform: scale(1.03);
-
     ${({ theme }) =>
       theme.palette.mode === "dark"
         ? `box-shadow: 0px 6px 20px rgba(255, 255, 255, 0.25);`
@@ -111,36 +114,74 @@ const StyledCardWrapper = styled.div<{ theme: any }>`
   }
 `;
 
+
 const BodyPostCardDetails = [
   {
-    image: "/assets/HeroImage.png",
-    category: "Finance",
-    title: "How to invest in the Stock Market",
-    author: "Jacob Jones",
-    date: "April 3, 2024",
-  },
-  {
-    image: "/assets/HeroImage.png",
+    image: "/assets/impact-player.png",
     category: "Sports",
-    title: "The Rise of Women's Football",
-    author: "Kathryn Murphy",
-    date: "April 6, 2024",
+    title: "The Impact Player Rule in IPL : Understand with an on play example",
+    href: "/category/sports-fitness/impact-substitute-ipl",
+    date: "April 3, 2025",
   },
   {
-    image: "/assets/HeroImage.png",
-    category: "Technology",
-    title: "The Future of AI: Trends to Watch",
-    author: "Wade Warren",
-    date: "April 4, 2024",
+    image: "/assets/chatgpt-vs-deepseek.jpg",
+    category: "Tech",
+    title: "ChatGPT vs DeepSeek : The right coversational AI for you",
+    href: genereateHref("tech-gadgets","chatgpt-vs-deepseek"),
+    date: "April 6, 2025",
   },
   {
-    image: "/assets/HeroImage.png",
+    image: "/assets/wise-things-post-first-job.png",
     category: "Finance",
-    title: "Smart Budgeting Tips for 2024",
-    author: "Leslie Alexander",
-    date: "April 5, 2024",
+    title: "A wise man’s job: First things to do after getting a job",
+    href: genereateHref("finance-insurance","things-todo-after-first-job"),
+    date: "April 12, 2025",
+  },
+  {
+    image: "/assets/under-rated-indian-moments.jpg",
+    category: "Sports",
+    title: "Most iconic yet underrated moments in Indian cricket history",
+    href: genereateHref("sports-fitness", "under-rated-iconic-indian-cricket-moments"),
+    date: "April 13, 2025",
+  },
+  {
+    image: "/assets/monitor-buying-guide.png",
+    category: "Tech",
+    title: "Best monitor to buy in 2025 and all things you need to now before getting a monitor",
+    href: genereateHref("tech-gadgets", "best-27inch-monitor-2025"),
+    date: "April 19, 2025",
+  },
+  {
+    image: "/assets/market-fluctuation.png",
+    category: "Finance",
+    title: "How to copeup with fluctuating market trends?",
+    href: genereateHref("finance-insurance", "how-to-cope-with-fluctuating-market-trends"),
+    date: "April 19, 2025",
+  },
+  {
+    image: "/assets/how-to-have-positive-relationship-with-money.jpg",
+    category: "Finance",
+    title: "How to have positive relationship with money?",
+    href: genereateHref("finance-insurance", "how-to-have-positive-relationship-with-money"),
+    date: "April 6, 2025",
+  },
+  {
+    image: "/assets/robo-mop.jpg",
+    category: "Tech",
+    title: "Best Robot Vaccum Cleaners in India under 25,000",
+    href: genereateHref("tech-gadgets", "best-robot-vaccum-cleaners-in-india"),
+    date: "April 19, 2025",
+  },
+  {
+    image: "/assets/powerplay-cover.jpg",
+    category: "Sports",
+    title: "Power Play Restrictions Explained",
+    href: genereateHref('sports-fitness','powerplay-rules-explained'),
+    date: "April 6, 2025",
+
   },
 ];
+//"/assets/robo-mop.jpg"
 
 const settings = {
   dots: true,
@@ -151,6 +192,11 @@ const settings = {
   slidesToShow: 3,
   slidesToScroll: 1,
   pauseOnHover: true,
+  centerMode: true,
+  centerPadding: "0px",
+  swipe: true,          // ✅ enables swipe on all devices
+  touchMove: true,      // ✅ allows finger dragging
+  draggable: true,      // ✅ mouse dragging on desktop
   responsive: [
     {
       breakpoint: 1024,
@@ -173,15 +219,13 @@ const RecentPostsCarousel = () => {
   return (
     <CarouselWrapper>
       <SectionHeading>Recent Blog Posts</SectionHeading>
-      {/* <div style={{   overflow: "hidden" }}> */}
-        <Slider {...settings}>
-          {BodyPostCardDetails.map((card, index) => (
-            <StyledCardWrapper theme={theme} key={`${card.title}-${index}`}>
-              <PostCard {...card} />
-            </StyledCardWrapper>
-          ))}
-        </Slider>
-      {/* </div> */}
+      <Slider {...settings}>
+        {BodyPostCardDetails.map((card, index) => (
+          <StyledCardWrapper theme={theme} key={`${card.title}-${index}`}>
+            <PostCard {...card} />
+          </StyledCardWrapper>
+        ))}
+      </Slider>
     </CarouselWrapper>
   );
 };
