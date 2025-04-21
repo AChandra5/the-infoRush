@@ -7,6 +7,7 @@ import React, { useEffect, useState } from "react";
 import Footer from "../Footer/Footer";
 import SimpleLoader from "../CustomLoader/SimpleLoader";
 import { trackClickEvent } from "@/events/gtagEvents/CTATracker";
+import Image from "next/image";
 
 const CategoriesGistWrapper = styled.div<{ theme?: any }>`
   padding: 15px;
@@ -65,21 +66,10 @@ const CategoriesGistWrapper = styled.div<{ theme?: any }>`
     align-items: center;
     justify-content: center;
 
-    img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
-
     @media (max-width: 768px) {
       max-width: 100%;
       max-height: unset;
       width: 100%;
-
-      img {
-        width: 100%;
-        height: auto;
-      }
     }
   }
 
@@ -143,42 +133,43 @@ const CategoriesGist = ({ categoriesData }: CategoriesGistProps) => {
   return (
     <>
       <CategoriesGistWrapper>
-        {categoriesData.map((data: categoriesData, index) => (
-          <>
-            <a href={data.href}>
-              <div className="data-container" key={index}>
+        {categoriesData.map((data: categoriesData) => (
+          <React.Fragment key={data.title}>
+            <a
+              href={data.href}
+              key={data.title}
+              onClick={() =>
+                trackClickEvent({
+                  action: "click",
+                  category: "navigation_from_gist_card_to_post",
+                  label: data.title,
+                })
+              }
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <div className="data-container">
                 <div className="topic-image">
-                  <a
-                    href={data.href}
-                    onClick={() =>
-                      trackClickEvent({
-                        action: "click",
-                        category: "navigation_from_gist_image_to_post",
-                        label: data.title,
-                      })
-                    }
-                  >
-                    <img src={data.imgSrc} alt={data.title} />
-                  </a>
+                  <Image
+                    src={data.imgSrc}
+                    alt={data.title}
+                    width={240}
+                    height={160}
+                    priority
+                    style={{
+                      objectFit: "cover",
+                      width: "100%",
+                      height: "auto",
+                    }}
+                    sizes="(max-width: 768px) 100vw, 240px"
+                  />
                 </div>
                 <div>
-                  <a
-                    href={data.href}
-                    onClick={() =>
-                      trackClickEvent({
-                        action: "click",
-                        category: "navigation_from_gist_title_to_post",
-                        label: data.title,
-                      })
-                    }
-                  >
-                    <div className="topic-title">{data.title}</div>
-                  </a>
+                  <div className="topic-title">{data.title}</div>
                   <div className="topic-gist">{data.gist}</div>
                 </div>
               </div>
             </a>
-          </>
+          </React.Fragment>
         ))}
         <Footer />
       </CategoriesGistWrapper>

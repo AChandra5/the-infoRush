@@ -101,7 +101,7 @@ export default function Post({
     headline: title,
     datePublished: date,
     image: coverImage
-      ? `https://theinforush.com/assets/${coverImage}`
+      ? `https://www.theinforush.com/${coverImage}`
       : undefined,
     description:
       description ||
@@ -115,7 +115,7 @@ export default function Post({
       name: "InfoRush",
       logo: {
         "@type": "ImageObject",
-        url: "https://theinforush.com/assets/logo.png",
+        url: "https://www.theinforush.com/assets/logo.png",
       },
     },
   };
