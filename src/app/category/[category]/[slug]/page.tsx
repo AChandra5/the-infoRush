@@ -98,21 +98,26 @@ export async function generateMetadata({
   const fileContent = fs.readFileSync(postPath, "utf-8");
   const { data } = matter(fileContent);
 
-  return {
-    metadataBase: new URL("https://www.theinforush.com"), // ✅ custom domain
-    title: data.title,
-    description: data.description,
-    keywords: data.keywords || [],
-    openGraph: {
+    return {
+      metadataBase: new URL("https://www.theinforush.com"),
       title: data.title,
       description: data.description,
-      images: data.coverImage ? [`/assets/${data.coverImage}`] : [],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: data.title,
-      description: data.description,
-      images: data.coverImage ? [`/assets/${data.coverImage}`] : [],
-    },
+      keywords: data.keywords || [],
+      openGraph: {
+        title: data.title,
+        description: data.description,
+        images: data.coverImage ? [`/assets/${data.coverImage}`] : [],
+        url: `https://www.theinforush.com/${category}/${slug}`, // optional
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: data.title,
+        description: data.description,
+        images: data.coverImage ? [`/assets/${data.coverImage}`] : [],
+      },
+      alternates: {
+        canonical: `https://www.theinforush.com/${category}/${slug}`,
+      }
+    };
   };
-}
+
