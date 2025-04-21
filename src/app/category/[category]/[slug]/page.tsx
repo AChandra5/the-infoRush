@@ -59,15 +59,14 @@ export async function generateStaticParams() {
   const categories = fs.readdirSync(baseDir);
 
   const paths: { category: string; slug: string }[] = [];
-
   for (const category of categories) {
     const categoryDir = path.join(baseDir, category);
     const files = fs.readdirSync(categoryDir);
-
     for (const file of files) {
       if (file.endsWith(".mdx")) {
         const slug = file.replace(/\.mdx$/, "");
         paths.push({ category, slug });
+
       }
     }
   }
@@ -96,12 +95,11 @@ export async function generateMetadata({
       description: "This blog post could not be found.",
     };
   }
-
   const fileContent = fs.readFileSync(postPath, "utf-8");
   const { data } = matter(fileContent);
 
   return {
-    metadataBase: new URL("https://theinforush.com"), // ✅ custom domain
+    metadataBase: new URL("https://www.theinforush.com"), // ✅ custom domain
     title: data.title,
     description: data.description,
     keywords: data.keywords || [],

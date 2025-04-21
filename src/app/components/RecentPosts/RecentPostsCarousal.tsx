@@ -175,13 +175,11 @@ const BodyPostCardDetails = [
   {
     image: "/assets/powerplay-cover.jpg",
     category: "Sports",
-    title: "Power Play Restrictions Explained",
+    title: "Power Play Restrictions Explained. How is it different in ODI and T20?",
     href: genereateHref('sports-fitness','powerplay-rules-explained'),
     date: "April 6, 2025",
-
   },
 ];
-//"/assets/robo-mop.jpg"
 
 const settings = {
   dots: true,

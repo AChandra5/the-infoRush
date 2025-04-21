@@ -43,9 +43,22 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Google Analytics Script */}
-        <link rel="icon" href="/assets/favicon1.png"></link>
         <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "The InfoRush",
+              url: "https://www.theinforush.com",
+              logo: "https://www.theinforush.com/assets/logo.png",
+            }),
+          }}
+        />
+
+        {/* Google Analytics Script */}
+        <link rel="icon" href="/assets/favico.png"></link>
+        <Script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
         />
