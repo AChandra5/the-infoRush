@@ -25,6 +25,13 @@ const categoriesData = [
     gist: "Let us understand the rules of powerplay in T20I and ODI's. We'll understtand the past rules, recent modifications and the importance of powerplay and how it can shape the game plan. ",
     href: genereateHref('sports-fitness','powerplay-rules-explained')
   },
+  {
+    imgSrc: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/how-to-select-bat-cover.jpg",
+    title: "How to choose a cricket bat?",
+    gist: "There are many things to consider while choosing a cricket bat. Especially now-a-days, on field umipres are checking the legality of bats as well in IPL. So we look into legality and things to remember while choosing best cricket bat suiting our style of play.",
+    href: genereateHref('sports-fitness','how-to-choose-a-cricket-bat'),
+
+  },
 ];
 
 const SportsAndFitness = () => {

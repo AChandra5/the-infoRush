@@ -124,13 +124,6 @@ const BodyPostCardDetails = [
     date: "April 3, 2025",
   },
   {
-    image: "/assets/chatgpt-vs-deepseek.jpg",
-    category: "Tech",
-    title: "ChatGPT vs DeepSeek : The right coversational AI for you",
-    href: genereateHref("tech-gadgets","chatgpt-vs-deepseek"),
-    date: "April 6, 2025",
-  },
-  {
     image: "/assets/wise-things-post-first-job.png",
     category: "Finance",
     title: "A wise man’s job: First things to do after getting a job",
@@ -159,11 +152,11 @@ const BodyPostCardDetails = [
     date: "April 19, 2025",
   },
   {
-    image: "/assets/how-to-have-positive-relationship-with-money.jpg",
+    image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/finance-insurance/card-payment.jpg",
     category: "Finance",
-    title: "How to have positive relationship with money?",
-    href: genereateHref("finance-insurance", "how-to-have-positive-relationship-with-money"),
-    date: "April 6, 2025",
+    title: "Credit card or Debit card as the payment method - Which one to use and when?",
+    href: genereateHref("finance-insurance", "creditcard-vs-debitcard"),
+    date: "April 23, 2025",
   },
   {
     image: "/assets/robo-mop.jpg",
@@ -178,6 +171,13 @@ const BodyPostCardDetails = [
     title: "Power Play Restrictions Explained. How is it different in ODI and T20?",
     href: genereateHref('sports-fitness','powerplay-rules-explained'),
     date: "April 6, 2025",
+  },
+  {
+    image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/tech-gadgets/vivot4-vs-oppok13.png",
+    category: "Tech",
+    title: "The latest smartphones released in April 2025: Vivo T4 vs Oppo K13 5G",
+    href: genereateHref('tech-gadgets','vivot4-vs-oppok13'),
+    date: "April 23, 2025",
   },
 ];
 
