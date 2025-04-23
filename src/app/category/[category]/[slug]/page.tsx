@@ -114,5 +114,8 @@ export async function generateMetadata({
       description: data.description,
       images: data.coverImage ? [`/assets/${data.coverImage}`] : [],
     },
+    alternates: {
+      canonical: `https://www.theinforush.com/category/${category}/${slug}`,
+    }
   };
 }

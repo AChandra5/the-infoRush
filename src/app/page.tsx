@@ -40,6 +40,9 @@ export const metadata = {
     ],
     apple: "/favicon.ico", 
   },
+  alternates: {
+    canonical: "https://www.theinforush.com",
+  },
 };
 
 export default function Home() {

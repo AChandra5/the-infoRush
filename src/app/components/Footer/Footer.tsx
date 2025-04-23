@@ -171,7 +171,7 @@ const aboutLinks: any[] = [
       {
         type: "icon",
         icon: <DraftsOutlinedIcon />,
-        link: "mailto:care@theinforush.com",
+        link: "mailto:contact@theinforush.com",
       },
       {
         type: "icon",
@@ -207,7 +207,7 @@ const Footer = () => {
               </div>
               <div className="contact-line">
                 Contact:&nbsp;
-                <a href="mailto:care@theinforush.com">care@theinforush.com</a>
+                <a href="contact@theinforush.com">contact@theinforush.com</a>
               </div>
               <div className="social-icons">
                 {aboutLinks[1].icons.map((item: any, index: number) => (
