@@ -7,7 +7,7 @@ const PrivacyPolicy = () => {
   <p>
     At <strong>InfoRush</strong> (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;), your privacy is extremely important to us.
     This Privacy Policy outlines how we collect, use, and safeguard your information when you visit
-    <a href="https://theinforush.com" target="_blank" rel="noopener noreferrer"> theinforush.com</a>.
+    <a href="https://www.theinforush.com" target="_blank" rel="noopener noreferrer"> www.theinforush.com</a>.
   </p>
   <p>By using this website, you agree to the terms of this Privacy Policy.</p>
 

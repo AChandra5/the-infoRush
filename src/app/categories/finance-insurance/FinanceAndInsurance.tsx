@@ -6,6 +6,12 @@ import React, { useEffect } from "react";
 
 const categoriesData = [
   {
+    imgSrc: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/finance-insurance/card-payment.jpg",
+    title: "Credit Card vs Debit Card: Which Should You Use Often?",
+    href: genereateHref("finance-insurance", "creditcard-vs-debitcard"),
+    gist: "Credit card or Debit card as the payment method is one of the most used payment methods. But which one to use and when?",
+  },
+  {
     imgSrc: "/assets/wise-things-post-first-job.png",
     title: "Wise Things To Do After Getting a job",
     gist: "There are many things to do after landing into your first job. Ofcourse after celebrating it! Let's dive into those important must-dos to conquer your financial strains.",
@@ -23,12 +29,7 @@ const categoriesData = [
     href: genereateHref("finance-insurance", "how-to-have-positive-relationship-with-money"),
     gist: "Money: Love it or hate it, but it influences our choices, opportunities, and even how we view ourselves. Yet, many people struggle to maintain a healthy relationship with it.  How to use it for mutual growth?",
   },
-  {
-    imgSrc: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/finance-insurance/card-payment.jpg",
-    title: "Credit Card vs Debit Card: Which Should You Use Often?",
-    href: genereateHref("finance-insurance", "creditcard-vs-debitcard"),
-    gist: "Credit card or Debit card as the payment method is one of the most used payment methods. But which one to use and when?",
-  },
+  
 ];
 
 const FinanceAndInsurance = () => {

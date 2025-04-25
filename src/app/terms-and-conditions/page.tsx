@@ -10,12 +10,12 @@ const TermsAndConditions = () => {
       <p>
         Welcome to <strong>InfoRush</strong>! By accessing or using
         <a
-          href="https://theinforush.com"
+          href="https://www.theinforush.com"
           target="_blank"
           rel="noopener noreferrer"
         >
           {" "}
-          theinforush.com
+          www.theinforush.com
         </a>
         , you agree to be bound by the following Terms and Conditions. Please
         read them carefully. If you do not agree with any part of these terms,

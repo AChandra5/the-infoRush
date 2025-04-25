@@ -6,10 +6,19 @@ import React, { useEffect } from "react";
 
 const categoriesData = [
   {
-    imgSrc: "/assets/chatgpt-vs-deepseek.jpg",
-    title: "ChatGPT vs DeepSeek",
-    gist: "Open AI's ChatGPT vs Hangzhou's DeepSeek, The AI rivalry winner in terms efficiency. Lets chose a conversational AI for our daily tasks.",
-    href: genereateHref("tech-gadgets", "chatgpt-vs-deepseek"),
+    imgSrc:
+      "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/tech-gadgets/vivot4-vs-oppok13.png",
+    title:
+      "The latest mobile phones released in 2025: Vivo T4 vs Oppo K13 5G - Best Mid-range smartphone for you",
+    gist: "These 2 latest mobile phones are currently the tight contenders in the mid-range smartphone category in India with an increasing user base every quarter.",
+    href: genereateHref("tech-gadgets", "vivot4-vs-oppok13"),
+  },
+  {
+    imgSrc:
+      "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/tech-gadgets/best-smart-phones-under-15000.png",
+    title: "Best smartphones under ₹15000 in 2025",
+    gist: "With the ever-increasing smartphones to capture the budget segment in India, the best smartphones under ₹15000 are an ever-populating bucket. This post has constantly updated to latest releases content.",
+    href: genereateHref("tech-gadgets", "best-smart-phones-under-15000"),
   },
   {
     imgSrc: "/assets/monitor-buying-guide.png",
@@ -20,16 +29,22 @@ const categoriesData = [
   },
   {
     imgSrc: "/assets/robo-mop.jpg",
-    title: "Best Robot Vaccum Cleaners in India under 25,000",
+    title: "Best Robot Vaccum Cleaners in India under ₹25,000",
     gist: "Best mid range Robot Vaccum Cleaners for home use in 2025. This article gives you indepth knowledge about the technical specs and makes you self reliant to choose your own robot cleaner that fits your home.",
     href: genereateHref("tech-gadgets", "best-robot-vaccum-cleaners-in-india"),
   },
   {
+    imgSrc: "/assets/chatgpt-vs-deepseek.jpg",
+    title: "ChatGPT vs DeepSeek",
+    gist: "Open AI's ChatGPT vs Hangzhou's DeepSeek, The AI rivalry winner in terms efficiency. Lets chose a conversational AI for our daily tasks.",
+    href: genereateHref("tech-gadgets", "chatgpt-vs-deepseek"),
+  },
+  {
     imgSrc:
-      "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/tech-gadgets/vivot4-vs-oppok13.png",
-    title:"The latest mobile phones released in 2025: Vivo T4 vs Oppo K13 5G - Best Mid-range smartphone for you",
-    gist: "These 2 latest mobile phones are currently the tight contenders in the mid-range smartphone category in India with an increasing user base every quarter.",
-    href: genereateHref("tech-gadgets", "vivot4-vs-oppok13"),
+      "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/tech-gadgets/smartphone-buying-guide.png",
+    title: "The Ultimate Smartphone Buying Guide (2025)",
+    gist: "Buying a smartphone isn't just about choosing a brand or price tag. It's about knowing how those specs affect your daily experience.In this guide, we simplify every major phone spec, from processors to displays, so that anyone can make an informed decision. ",
+    href: genereateHref("tech-gadgets", "smartphone-buying-guide"),
   },
 ];
 

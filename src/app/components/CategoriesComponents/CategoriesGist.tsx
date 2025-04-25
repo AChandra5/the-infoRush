@@ -134,43 +134,60 @@ const CategoriesGist = ({ categoriesData }: CategoriesGistProps) => {
     <>
       <CategoriesGistWrapper>
         {categoriesData.map((data: categoriesData) => (
-          <React.Fragment key={data.title}>
-            <a
-              href={data.href}
-              key={data.title}
-              onClick={() =>
-                trackClickEvent({
-                  action: "click",
-                  category: "navigation_from_gist_card_to_post",
-                  label: data.title,
-                })
-              }
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              <div className="data-container">
-                <div className="topic-image">
-                  <Image
-                    src={data.imgSrc}
-                    alt={data.title}
-                    width={240}
-                    height={160}
-                    priority
-                    style={{
-                      objectFit: "cover",
-                      width: "100%",
-                      height: "auto",
-                    }}
-                    sizes="(max-width: 768px) 100vw, 240px"
-                  />
-                </div>
-                <div>
-                  <div className="topic-title">{data.title}</div>
-                  <div className="topic-gist">{data.gist}</div>
-                </div>
-              </div>
-            </a>
-          </React.Fragment>
+          <div className="data-container" key={data.title}>
+            <div className="topic-image">
+              <a
+                href={data.href}
+                onClick={() =>
+                  trackClickEvent({
+                    action: "click",
+                    category: "navigation_from_gist_card_to_post",
+                    label: data.title,
+                  })
+                }
+              >
+                <Image
+                  src={data.imgSrc}
+                  alt={data.title}
+                  width={240}
+                  height={160}
+                  priority
+                  style={{
+                    objectFit: "cover",
+                    width: "100%",
+                    height: "auto",
+                  }}
+                  sizes="(max-width: 768px) 100vw, 240px"
+                />
+              </a>
+            </div>
+            <div>
+              <a
+                href={data.href}
+                onClick={() =>
+                  trackClickEvent({
+                    action: "click",
+                    category: "navigation_from_gist_card_to_post",
+                    label: data.title,
+                  })
+                }
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <div className="topic-title">{data.title}</div>
+              </a>
+              <a href={data.href}
+                onClick={() =>
+                  trackClickEvent({
+                    action: "click",
+                    category: "navigation_from_gist_card_to_post",
+                    label: data.title,
+                  })
+                }
+                style={{ textDecoration: "none", color: "inherit" }}><div className="topic-gist">{data.gist}</div></a>
+            </div>
+          </div>
         ))}
+
         <Footer />
       </CategoriesGistWrapper>
     </>

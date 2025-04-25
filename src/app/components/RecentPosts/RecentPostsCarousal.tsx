@@ -179,6 +179,20 @@ const BodyPostCardDetails = [
     href: genereateHref('tech-gadgets','vivot4-vs-oppok13'),
     date: "April 23, 2025",
   },
+  {
+    image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/annual-contract.jpg",
+    category: "Sports",
+    title: "What is a BCCI Annual contract? Learn this with examples",
+    href: genereateHref('sports-fitness','bcci-anual-contract-explained'),
+    date: "April 25, 2025",
+  },
+  {
+    image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/tech-gadgets/smartphone-buying-guide.png",
+    category: "Tech",
+    title: "The Ultimate Smartphone Buying Guide (2025)",
+    href: genereateHref('tech-gadgets','smartphone-buying-guide'),
+    date: "April 25, 2025",
+  },
 ];
 
 const settings = {

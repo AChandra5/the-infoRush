@@ -88,21 +88,23 @@ export default function Post({
   coverImage,
   description,
   children,
+  contentType,
+  gistUrl,
 }: {
   title: string;
   date: string;
   coverImage: string;
   description?: string;
   children: ReactNode;
+  contentType: string;
+  gistUrl: string;
 }) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: title,
     datePublished: date,
-    image: coverImage
-      ? `https://www.theinforush.com/${coverImage}`
-      : undefined,
+    image: coverImage ? `https://www.theinforush.com/${coverImage}` : undefined,
     description:
       description ||
       "Explore the latest insights on tech, finance, and sports.",
@@ -131,6 +133,13 @@ export default function Post({
         <p style={{ color: "#888" }}>Last published/edited on {date}</p>
         <div className="">{children}</div>
       </article>
+      <div  style={{margin: "15px", fontSize: "1rem"}}>
+      <em>
+        <a href={`/categories/${gistUrl}`} >
+          To read more {contentType} content on the InfoRush click here.
+        </a>
+      </em>
+      </div>
     </BlogWrapper>
   );
 }

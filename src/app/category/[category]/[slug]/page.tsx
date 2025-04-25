@@ -39,6 +39,17 @@ export default async function BlogPost({
         date={data.date}
         coverImage={data.coverImage}
         description={data.description}
+        contentType={
+          category === "sports-fitness"
+            ? "cricket and fitness"
+            : category === "tech-gadgets"
+            ? "tech and gadgets"
+            : category === "finance-insurance"
+            ? "finance and insurance"
+            : ""
+        }
+        
+        gistUrl={category}
       >
         {MDXContent}
       </Post>
@@ -53,7 +64,6 @@ export default async function BlogPost({
   );
 }
 
-
 export async function generateStaticParams() {
   const baseDir = path.join(process.cwd(), "content", "category"); // ✅ corrected
   const categories = fs.readdirSync(baseDir);
@@ -66,7 +76,6 @@ export async function generateStaticParams() {
       if (file.endsWith(".mdx")) {
         const slug = file.replace(/\.mdx$/, "");
         paths.push({ category, slug });
-
       }
     }
   }
@@ -116,6 +125,6 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: `https://www.theinforush.com/category/${category}/${slug}`,
-    }
+    },
   };
 }
