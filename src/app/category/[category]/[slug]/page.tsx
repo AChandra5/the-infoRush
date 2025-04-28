@@ -115,14 +115,22 @@ export async function generateMetadata({
     openGraph: {
       title: data.title,
       description: data.description,
-      images: data.coverImage ? [`/assets/${data.coverImage}`] : [],
-    },
+      images: data.coverImage
+      ? [data.coverImage.startsWith('http') || data.coverImage.startsWith('//') 
+          ? data.coverImage 
+          : `/assets/${data.coverImage}`]
+      : [],
+        },
     twitter: {
       card: "summary_large_image",
       title: data.title,
       description: data.description,
-      images: data.coverImage ? [`/assets/${data.coverImage}`] : [],
-    },
+      images: data.coverImage
+      ? [data.coverImage.startsWith('http') || data.coverImage.startsWith('//') 
+          ? data.coverImage 
+          : `/assets/${data.coverImage}`]
+      : [],
+        },
     alternates: {
       canonical: `https://www.theinforush.com/category/${category}/${slug}`,
     },
