@@ -6,6 +6,12 @@ import React, { useEffect } from "react";
 
 const categoriesData = [
   {
+    imgSrc: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/finance-insurance/cyberinsurance-2025.png",
+    title: "How Cyber Insurance Can Protect Your Money in 2025?",
+    href: genereateHref("finance-insurance", "cyber-insurance-2025"),
+    gist: "With the rise of UPI and internet conncectivity and given the ever-transforming fintech sphere, Cyber Insurance is a must to protect your online presence and hard earned money form ransomware attacks, data breaches.",
+  },
+  {
     imgSrc: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/finance-insurance/card-payment.jpg",
     title: "Credit Card vs Debit Card: Which Should You Use Often?",
     href: genereateHref("finance-insurance", "creditcard-vs-debitcard"),

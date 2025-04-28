@@ -7,6 +7,14 @@ import React, { useEffect } from "react";
 const categoriesData = [
   {
     imgSrc:
+      "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/tech-gadgets/lpddr5-ram.jpg",
+    title:
+      "What is LPDDR5 RAM? Should You Care About It in Your Next Phone?",
+    gist: "Wondering what LPDDR5 RAM means in smartphones? Learn how LPDDR5 improves speed, gaming, battery life, and whether you need it in your next phone in 2025..",
+    href: genereateHref("tech-gadgets", "lpddr5-ram-explained"),
+  },
+  {
+    imgSrc:
       "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/tech-gadgets/vivot4-vs-oppok13.png",
     title:
       "The latest mobile phones released in 2025: Vivo T4 vs Oppo K13 5G - Best Mid-range smartphone for you",

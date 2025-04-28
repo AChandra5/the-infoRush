@@ -117,25 +117,25 @@ const StyledCardWrapper = styled.div<{ theme: any }>`
 
 const BodyPostCardDetails = [
   {
-    image: "/assets/impact-player.png",
+    image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/select-bat.jpg",
     category: "Sports",
-    title: "The Impact Player Rule in IPL : Understand with an on play example",
-    href: "/category/sports-fitness/impact-substitute-ipl",
-    date: "April 3, 2025",
+    title: "Cricket Bat Buying Guide – Weight, Willow & Size Explained Simply",
+    href: genereateHref("sports-fitness","how-to-choose-a-cricket-bat"),
+    date: "April 23, 2025",
   },
   {
-    image: "/assets/wise-things-post-first-job.png",
-    category: "Finance",
-    title: "A wise man’s job: First things to do after getting a job",
-    href: genereateHref("finance-insurance","things-todo-after-first-job"),
+    image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/tech-gadgets/lpddr5-ram.jpg",
+    category: "Tech",
+    title: "What is LPDDR5 RAM? Should You Care About It in Your Next Phone?",
+    href: genereateHref("tech-gadgets","lpddr5-ram-explained"),
     date: "April 12, 2025",
   },
   {
-    image: "/assets/under-rated-indian-moments.jpg",
+    image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/shoe-select.jpg",
     category: "Sports",
-    title: "Most iconic yet underrated moments in Indian cricket history",
-    href: genereateHref("sports-fitness", "under-rated-iconic-indian-cricket-moments"),
-    date: "April 13, 2025",
+    title: "How to Choose Cricket Shoes? A Complete Buying Guide",
+    href: genereateHref("sports-fitness", "how-to-choose-cricket-shoes"),
+    date: "April 28, 2025",
   },
   {
     image: "/assets/monitor-buying-guide.png",
@@ -145,11 +145,11 @@ const BodyPostCardDetails = [
     date: "April 19, 2025",
   },
   {
-    image: "/assets/market-fluctuation.png",
+    image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/finance-insurance/cyberinsurance-2025.png",
     category: "Finance",
-    title: "How to copeup with fluctuating market trends?",
-    href: genereateHref("finance-insurance", "how-to-cope-with-fluctuating-market-trends"),
-    date: "April 19, 2025",
+    title: "How Cyber Insurance Can Protect Your Money in 2025?",
+    href: genereateHref("finance-insurance", "cyber-insurance-2025"),
+    date: "April 28, 2025",
   },
   {
     image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/finance-insurance/card-payment.jpg",

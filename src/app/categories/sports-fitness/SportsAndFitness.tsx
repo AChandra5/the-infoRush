@@ -7,6 +7,12 @@ import React, { useEffect } from "react";
 
 const categoriesData = [
   {
+    imgSrc: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/shoe-select.jpg",
+    title: "How to Choose Cricket Shoes? A Complete Buying Guide",
+    gist: "Looking for the perfect cricket shoes? Here's a simple guide to choosing the best cricket shoes for batting, bowling, and fielding, plus top picks under budget.",
+    href: genereateHref('sports-fitness','how-to-choose-cricket-shoes'),
+  },
+  {
     imgSrc: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/select-bat.jpg",
     title: "How to choose a cricket bat?",
     gist: "There are many things to consider while choosing a cricket bat. Especially now-a-days, on field umipres are checking the legality of bats as well in IPL. So we look into legality and things to remember while choosing best cricket bat suiting our style of play.",
