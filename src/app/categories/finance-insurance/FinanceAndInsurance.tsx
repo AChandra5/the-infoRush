@@ -6,6 +6,12 @@ import React, { useEffect } from "react";
 
 const categoriesData = [
   {
+    imgSrc: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/finance-insurance/sip-cover.png",
+    title: "How to Start SIP in India: Beginner’s Guide for 2025",
+    href: genereateHref("finance-insurance", "how-to-start-sip"),
+    gist: "Learn how to start SIP in India in 2025 with this beginner-friendly guide. Includes simple steps, best platforms, real stats, and SIP vs FD comparison.",
+  },
+  {
     imgSrc: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/finance-insurance/cyberinsurance-2025.png",
     title: "How Cyber Insurance Can Protect Your Money in 2025?",
     href: genereateHref("finance-insurance", "cyber-insurance-2025"),

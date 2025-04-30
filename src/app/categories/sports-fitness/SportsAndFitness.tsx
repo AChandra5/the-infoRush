@@ -7,6 +7,12 @@ import React, { useEffect } from "react";
 
 const categoriesData = [
   {
+    imgSrc: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/tossing-coin.png",
+    title: "Cricket Toss Bias: Does Winning the Toss Really Matter?",
+    gist: "We break down the cricket toss advantage across formats like T20, ODI, and Test matches. Is winning the toss truly a match-winner or just a psychological edge?",
+    href: genereateHref('sports-fitness','does-toss-really-matter'),
+  },
+  {
     imgSrc: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/shoe-select.jpg",
     title: "How to Choose Cricket Shoes? A Complete Buying Guide",
     gist: "Looking for the perfect cricket shoes? Here's a simple guide to choosing the best cricket shoes for batting, bowling, and fielding, plus top picks under budget.",

@@ -21,6 +21,7 @@ import { useTheme } from "@mui/material/styles";
 import { useRouter } from "next/navigation";
 import { trackClickEvent } from "@/events/gtagEvents/CTATracker";
 import { usePathname } from "next/navigation";
+import { Slide } from "@mui/material";
 
 
 const drawerWidth = 240;
@@ -273,8 +274,9 @@ export default function NavBar() {
             boxSizing: "border-box",
             width: drawerWidth,
           },
-        }}
+          transition: "transform 1s ease-in-out, opacity 0.3s ease-in-out",        }}
       >
+        <Slide direction="right" in={mobileOpen} mountOnEnter unmountOnExit>
         <Box
           onClick={handleDrawerToggle}
           sx={{ textAlign: "center", cursor: "pointer" }}
@@ -321,6 +323,7 @@ export default function NavBar() {
             ))}
           </List>
         </Box>
+        </Slide>
       </Drawer>
     </nav>
   );

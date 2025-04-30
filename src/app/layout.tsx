@@ -43,7 +43,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-      <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -59,6 +58,7 @@ export default function RootLayout({
 
         {/* Google Analytics Script */}
         <link rel="icon" href="/assets/favico.png"></link>
+        <link rel="shortcut icon" href="/assets/favico.png" type="image/x-icon" />
         <Script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
@@ -94,6 +94,29 @@ export default function RootLayout({
             `,
           }}
         />
+        <title>The InfoRush</title>
+        <meta property="og:title" content="The InfoRush" />
+        <meta
+          property="og:description"
+          content="InfoRush brings you quick, needful knowledge pills on tech, finance, fitness, and cricket — all in one place. We provide you real and bias-free recommendations."
+        />
+        <meta
+          property="og:image"
+          content="https://www.theinforush.com/assets/logo.png"
+        />
+        <meta property="og:url" content="https://www.theinforush.com" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="The InfoRush" />
+        <meta
+          name="twitter:description"
+          content="InfoRush brings you quick, needful knowledge pills on tech, finance, fitness, and cricket — all in one place."
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.theinforush.com/assets/logo.png"
+        />
+        <meta name="keywords" content="gadgets, tech, technology, smartphones, cricket, fitness, finance, insurance, money saving" />
       </head>
       <body
         className={inter.className}

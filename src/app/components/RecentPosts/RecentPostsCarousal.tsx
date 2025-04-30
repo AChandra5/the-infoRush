@@ -117,6 +117,20 @@ const StyledCardWrapper = styled.div<{ theme: any }>`
 
 const BodyPostCardDetails = [
   {
+    image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/finance-insurance/sip-cover.png",
+    category: "Finance",
+    title: "How to Start SIP in India: Beginner’s Guide for 2025",
+    href: genereateHref("finance-insurance", "how-to-start-sip"),
+    date: "May 01, 2025",
+  },
+  {
+    image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/tossing-coin.png",
+    category: "Sports",
+    title: "Cricket Toss Bias: Does Winning the Toss Really Matter?",
+    href: genereateHref("sports-fitness","does-toss-really-matter"),
+    date: "May 01, 2025",
+  },
+  {
     image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/select-bat.jpg",
     category: "Sports",
     title: "Cricket Bat Buying Guide – Weight, Willow & Size Explained Simply",

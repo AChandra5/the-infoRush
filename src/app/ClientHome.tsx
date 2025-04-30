@@ -28,7 +28,7 @@ export default function ClientHome() {
     });
   })
 
-  if (loading) return <SimpleLoader imgSrc={"/assets/loader.gif"} />;
+  if (loading) return <SimpleLoader imgSrc={"/assets/loader.gif"} />
 
   return (
     <>
