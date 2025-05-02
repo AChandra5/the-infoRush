@@ -94,7 +94,7 @@ export default function RootLayout({
             `,
           }}
         />
-        <title>The InfoRush</title>
+        {/* <title>The InfoRush</title>
         <meta property="og:title" content="The InfoRush" />
         <meta
           property="og:description"
@@ -116,7 +116,7 @@ export default function RootLayout({
           name="twitter:image"
           content="https://www.theinforush.com/assets/logo.png"
         />
-        <meta name="keywords" content="gadgets, tech, technology, smartphones, cricket, fitness, finance, insurance, money saving" />
+        <meta name="keywords" content="gadgets, tech, technology, smartphones, cricket, fitness, finance, insurance, money saving" /> */}
       </head>
       <body
         className={inter.className}

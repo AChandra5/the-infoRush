@@ -4,6 +4,7 @@
 
 import styled from "@emotion/styled";
 import { ReactNode } from "react";
+import SocialMediaShare from "../Sharing/SocialMediaShare";
 
 
 const BlogWrapper = styled.div<{ theme: any }>`
@@ -129,10 +130,12 @@ export default function Post({
       />
       <article>
         <img src={coverImage} alt={title} className="cover-image" />
-        <h1>{title}</h1>
+        <h1 className="title">{title}</h1>
         <p style={{ color: "#888" }}>Last published/edited on {date}</p>
         <div className="">{children}</div>
       </article>
+      <SocialMediaShare />
+
       <div  style={{margin: "15px", fontSize: "1rem"}}>
       <em>
         <a href={`/categories/${gistUrl}`} >

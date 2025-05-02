@@ -19,6 +19,9 @@ const CategoriesGistWrapper = styled.div<{ theme?: any }>`
       theme.palette.mode === "dark" ? "#ffffff" : "#0D3483"};
     text-decoration: none;
   }
+    h1{
+    text-align: center;
+    }
 
   .data-container {
     display: grid;
@@ -116,9 +119,10 @@ interface categoriesData {
 
 interface CategoriesGistProps {
   categoriesData: categoriesData[];
+  categoryheading: string;
 }
 
-const CategoriesGist = ({ categoriesData }: CategoriesGistProps) => {
+const CategoriesGist = ({ categoriesData, categoryheading }: CategoriesGistProps) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -133,6 +137,7 @@ const CategoriesGist = ({ categoriesData }: CategoriesGistProps) => {
   return (
     <>
       <CategoriesGistWrapper>
+    <h1>{categoryheading}</h1>
         {categoriesData.map((data: categoriesData) => (
           <div className="data-container" key={data.title}>
             <div className="topic-image">
@@ -173,7 +178,7 @@ const CategoriesGist = ({ categoriesData }: CategoriesGistProps) => {
                 }
                 style={{ textDecoration: "none", color: "inherit" }}
               >
-                <div className="topic-title">{data.title}</div>
+                <h2 className="topic-title">{data.title}</h2>
               </a>
               <a href={data.href}
                 onClick={() =>

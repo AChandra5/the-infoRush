@@ -30,7 +30,7 @@ export const metadata = {
     title: "Sports & Fitness - InfoRush",
     description:
       "Discover expert insights, cricket rule explanations, fitness strategies, and inspiring sports stories at InfoRush!",
-    images: ["https://www.theinforush.com/assets/logo.png"],
+    images: ["https://www.theinforush.com/assets/cricket&fitness.png"],
   },
 };
 

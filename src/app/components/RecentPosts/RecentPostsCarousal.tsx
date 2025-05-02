@@ -114,38 +114,58 @@ const StyledCardWrapper = styled.div<{ theme: any }>`
   }
 `;
 
-
 const BodyPostCardDetails = [
   {
-    image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/finance-insurance/sip-cover.png",
+    image:
+      "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/champak.jpeg",
+    category: "Sports",
+    title: "Meet Champak: The Robotic Dog Revolutionising IPL 2025",
+    href: genereateHref("sports-fitness", "champak-the-ipl-robot-dog"),
+    date: "May 04, 2025",
+  },
+  {
+    image:
+      "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/tech-gadgets/best-smart-phones-under-15000.png",
+      category: "Tech",
+    title: "Best smartphones under ₹15000 in 2025. Top pick for you [Every month update]",
+    date: "April 24, 2025",
+    href: genereateHref("tech-gadgets", "best-smart-phones-under-15000"),
+  },
+  {
+    image:
+      "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/finance-insurance/sip-cover.png",
     category: "Finance",
     title: "How to Start SIP in India: Beginner’s Guide for 2025",
     href: genereateHref("finance-insurance", "how-to-start-sip"),
     date: "May 01, 2025",
   },
   {
-    image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/tossing-coin.png",
+    image:
+      "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/tossing-coin.png",
     category: "Sports",
     title: "Cricket Toss Bias: Does Winning the Toss Really Matter?",
-    href: genereateHref("sports-fitness","does-toss-really-matter"),
+    href: genereateHref("sports-fitness", "does-toss-really-matter"),
     date: "May 01, 2025",
   },
   {
-    image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/select-bat.jpg",
+    image:
+      "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/select-bat.jpg",
     category: "Sports",
     title: "Cricket Bat Buying Guide – Weight, Willow & Size Explained Simply",
-    href: genereateHref("sports-fitness","how-to-choose-a-cricket-bat"),
+    href: genereateHref("sports-fitness", "how-to-choose-a-cricket-bat"),
     date: "April 23, 2025",
   },
   {
-    image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/tech-gadgets/lpddr5-ram.jpg",
+    image:
+      "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/tech-gadgets/lpddr5-ram.jpg",
     category: "Tech",
     title: "What is LPDDR5 RAM? Should You Care About It in Your Next Phone?",
-    href: genereateHref("tech-gadgets","lpddr5-ram-explained"),
+    href: genereateHref("tech-gadgets", "lpddr5-ram-explained"),
     date: "April 12, 2025",
   },
   {
-    image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/shoe-select.jpg",
+    image:
+      "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/shoe-select.jpg",
     category: "Sports",
     title: "How to Choose Cricket Shoes? A Complete Buying Guide",
     href: genereateHref("sports-fitness", "how-to-choose-cricket-shoes"),
@@ -154,21 +174,25 @@ const BodyPostCardDetails = [
   {
     image: "/assets/monitor-buying-guide.png",
     category: "Tech",
-    title: "Best monitor to buy in 2025 and all things you need to now before getting a monitor",
+    title:
+      "Best monitor to buy in 2025 and all things you need to now before getting a monitor",
     href: genereateHref("tech-gadgets", "best-27inch-monitor-2025"),
     date: "April 19, 2025",
   },
   {
-    image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/finance-insurance/cyberinsurance-2025.png",
+    image:
+      "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/finance-insurance/cyberinsurance-2025.png",
     category: "Finance",
     title: "How Cyber Insurance Can Protect Your Money in 2025?",
     href: genereateHref("finance-insurance", "cyber-insurance-2025"),
     date: "April 28, 2025",
   },
   {
-    image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/finance-insurance/card-payment.jpg",
+    image:
+      "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/finance-insurance/card-payment.jpg",
     category: "Finance",
-    title: "Credit card or Debit card as the payment method - Which one to use and when?",
+    title:
+      "Credit card or Debit card as the payment method - Which one to use and when?",
     href: genereateHref("finance-insurance", "creditcard-vs-debitcard"),
     date: "April 23, 2025",
   },
@@ -180,31 +204,28 @@ const BodyPostCardDetails = [
     date: "April 19, 2025",
   },
   {
-    image: "/assets/powerplay-cover.jpg",
-    category: "Sports",
-    title: "Power Play Restrictions Explained. How is it different in ODI and T20?",
-    href: genereateHref('sports-fitness','powerplay-rules-explained'),
-    date: "April 6, 2025",
-  },
-  {
-    image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/tech-gadgets/vivot4-vs-oppok13.png",
+    image:
+      "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/tech-gadgets/vivot4-vs-oppok13.png",
     category: "Tech",
-    title: "The latest smartphones released in April 2025: Vivo T4 vs Oppo K13 5G",
-    href: genereateHref('tech-gadgets','vivot4-vs-oppok13'),
+    title:
+      "The latest smartphones released in April 2025: Vivo T4 vs Oppo K13 5G",
+    href: genereateHref("tech-gadgets", "vivot4-vs-oppok13"),
     date: "April 23, 2025",
   },
   {
-    image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/annual-contract.jpg",
-    category: "Sports",
-    title: "What is a BCCI Annual contract? Learn this with examples",
-    href: genereateHref('sports-fitness','bcci-anual-contract-explained'),
-    date: "April 25, 2025",
+    image:
+      "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/tech-gadgets/best-smartphones-under-25k.png",
+    category: "Tech",
+    title: "Best smartphones under ₹25000 in 2025. Top pick for you [Every month update]",
+    date: "May 03, 2025",
+    href: genereateHref("tech-gadgets", "best-smartphones-under-25000"),
   },
   {
-    image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/tech-gadgets/smartphone-buying-guide.png",
+    image:
+      "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/tech-gadgets/smartphone-buying-guide.png",
     category: "Tech",
     title: "The Ultimate Smartphone Buying Guide (2025)",
-    href: genereateHref('tech-gadgets','smartphone-buying-guide'),
+    href: genereateHref("tech-gadgets", "smartphone-buying-guide"),
     date: "April 25, 2025",
   },
 ];
@@ -220,9 +241,9 @@ const settings = {
   pauseOnHover: true,
   centerMode: true,
   centerPadding: "0px",
-  swipe: true,          // ✅ enables swipe on all devices
-  touchMove: true,      // ✅ allows finger dragging
-  draggable: true,      // ✅ mouse dragging on desktop
+  swipe: true, // ✅ enables swipe on all devices
+  touchMove: true, // ✅ allows finger dragging
+  draggable: true, // ✅ mouse dragging on desktop
   responsive: [
     {
       breakpoint: 1024,

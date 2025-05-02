@@ -7,6 +7,12 @@ import React, { useEffect } from "react";
 
 const categoriesData = [
   {
+    imgSrc: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/champak.jpeg",
+    title: "Meet Champak: The Robotic Dog Revolutionising IPL 2025",
+    gist: "Champak, the IPL 2025 robot dog mascot, is a tech-powered cricket innovation blending entertainment and technology. Discover its origin, role in IPL 2025, fan engagement, and how this robot dog is captivating cricket audiences.",
+    href: genereateHref('sports-fitness','champak-the-ipl-robot-dog'),
+  },
+  {
     imgSrc: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/tossing-coin.png",
     title: "Cricket Toss Bias: Does Winning the Toss Really Matter?",
     gist: "We break down the cricket toss advantage across formats like T20, ODI, and Test matches. Is winning the toss truly a match-winner or just a psychological edge?",
@@ -72,7 +78,7 @@ const SportsAndFitness = () => {
   
   return (
     <>
-      <CategoriesGist categoriesData={categoriesData} />
+      <CategoriesGist categoriesData={categoriesData} categoryheading="Sports & Fitness"/>
     </>
   );
 };

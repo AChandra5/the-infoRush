@@ -56,7 +56,7 @@ const FinanceAndInsurance = () => {
 
   return (
     <>
-      <CategoriesGist categoriesData={categoriesData} />
+      <CategoriesGist categoriesData={categoriesData} categoryheading= "Finance & Insurance"/>
     </>
   );
 };

@@ -27,7 +27,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Tech & Gadgets - The InfoRush",
     description: "Explore expert insights, reviews, and the latest news about smartphones, laptops, gadgets, and emerging tech trends at The InfoRush.",
-    images: ["https://www.theinforush.com/assets/favico.png"],
+    images: ["https://www.theinforush.com/assets/tech&gadgets.png"],
   },
 };
 

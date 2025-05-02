@@ -25,7 +25,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Finance & Insurance - The InfoRush",
     description: "Master your finances and insurance decisions with simple, clear, and actionable advice from The InfoRush. No jargon, just real help!",
-    images: ["https://www.theinforush.com/assets/logo.png"],
+    images: ["https://www.theinforush.com/assets/finance&insurance.png"],
   },
 };
 
