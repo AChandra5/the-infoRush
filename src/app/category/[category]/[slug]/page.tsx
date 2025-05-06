@@ -106,8 +106,7 @@ export async function generateMetadata({
   }
   const fileContent = fs.readFileSync(postPath, "utf-8");
   const { data } = matter(fileContent);
-
-  return {
+ return {
     metadataBase: new URL("https://www.theinforush.com"), // ✅ custom domain
     title: data.title,
     description: data.description,
@@ -118,7 +117,7 @@ export async function generateMetadata({
       images: data.coverImage
       ? [data.coverImage.startsWith('http') || data.coverImage.startsWith('//') 
           ? data.coverImage 
-          : `/assets/${data.coverImage}`]
+          : `/${data.coverImage}`]
       : [],
         },
     twitter: {
@@ -128,7 +127,7 @@ export async function generateMetadata({
       images: data.coverImage
       ? [data.coverImage.startsWith('http') || data.coverImage.startsWith('//') 
           ? data.coverImage 
-          : `/assets/${data.coverImage}`]
+          : `/${data.coverImage}`]
       : [],
         },
     alternates: {

@@ -37,7 +37,7 @@ export default function NavBar() {
     { label: "Tech & Gadgets", path: "/categories/tech-gadgets" },
     { label: "Sports & Fitness", path: "/categories/sports-fitness" },
     { label: "Finance & Insurance", path: "/categories/finance-insurance" },
-    { label: "About", path: "" },
+    { label: "Income Tax Calculator", path: "/income-tax-calculator" },
     {
       label: "mode",
       icon: {

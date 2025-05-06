@@ -116,6 +116,13 @@ const StyledCardWrapper = styled.div<{ theme: any }>`
 
 const BodyPostCardDetails = [
   {
+    image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/finance-insurance/gold-investment.png",
+    category: "Finance",
+    title: "Digital Gold vs. Gold ETFs vs. Physical Gold",
+    href: genereateHref("finance-insurance", "digital-gold-vs-gold-etf-vs-physical-gold"),
+    date: "May 06, 2025",
+  },
+  {
     image:
       "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/champak.jpeg",
     category: "Sports",

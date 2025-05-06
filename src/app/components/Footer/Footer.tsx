@@ -143,10 +143,10 @@ interface FooterLinks {
 const legalPoints: FooterLinks[] = [
   { title: "Privacy Policy", link: "/privacy-policy" },
   { title: "Terms and Conditions", link: "/terms-and-conditions" },
-  { title: "Certifications", link: "/certification" },
 ];
 
 const infoLinks: FooterLinks[] = [
+  {title: "Income Tax Calculator", link: "/income-tax-calculator"},
   { title: "Tech & Gadgets", link: "/categories/tech-gadgets" },
   { title: "Sports & Fitness", link: "/categories/sports-fitness" },
   { title: "Finance & Insurance", link: "/categories/finance-insurance" },

@@ -6,6 +6,18 @@ import React, { useEffect } from "react";
 
 const categoriesData = [
   {
+    imgSrc: "/assets/incometax-calculator.png",
+    title: "Best Ways to Save Tax Legally in India(FY 2025-26)",
+    href: genereateHref("finance-insurance", "income-tax-2025-simplified"),
+    gist: "Still confused on which tax regime to choose? Let's understand the Income Tax calculation simply with our embedded Income Tax Calculator and decide which regime suits you to save on your taxes.",
+  },
+  {
+    imgSrc: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/finance-insurance/gold-investment.png",
+    title: "Digital Gold vs. Gold ETFs vs. Physical Gold: Which Is the Better Gold Investment in 2025?",
+    href: genereateHref("finance-insurance", "digital-gold-vs-gold-etf-vs-physical-gold"),
+    gist: "Gold continues to be a trusted form of investment across Indian households. In 2025, investors have more than one way to gain exposure to this precious metal. But which type of gold investment suits your investment appetite?",
+  },
+  {
     imgSrc: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/finance-insurance/sip-cover.png",
     title: "How to Start SIP in India: Beginner’s Guide for 2025",
     href: genereateHref("finance-insurance", "how-to-start-sip"),
