@@ -125,6 +125,14 @@ console.log(currentTheme)
       savings,
       hraExplanation,
     });
+
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "tax_calculated", {
+        event_category: "engagement",
+        event_label: "Income Tax Calculator 2025",
+        value: parseInt(income.replace(/[^\d]/g, ""), 10) || 0,
+      });
+    }
   };
 
   const calculateOldTax = (income: number, exemption: number): number => {
