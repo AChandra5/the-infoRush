@@ -7,6 +7,12 @@ import React, { useEffect } from "react";
 
 const categoriesData = [
   {
+    imgSrc: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/rohit-sharma.png",
+    title: "Rohit Sharma’s Test Cricket Retirement: A Legendary Career Bows Out",
+    gist: "Rohit's decision, announced on Instagram, came after months of speculation and a recent dip in form, but it doesn’t diminish his towering legacy. How crucial is this impact to the Indian team?",
+    href: genereateHref('sports-fitness','rohit-sharma-test-retirement'),
+  },
+  {
     imgSrc: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/champak.jpeg",
     title: "Meet Champak: The Robotic Dog Revolutionising IPL 2025",
     gist: "Champak, the IPL 2025 robot dog mascot, is a tech-powered cricket innovation blending entertainment and technology. Discover its origin, role in IPL 2025, fan engagement, and how this robot dog is captivating cricket audiences.",

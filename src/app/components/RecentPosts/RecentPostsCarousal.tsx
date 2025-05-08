@@ -116,6 +116,13 @@ const StyledCardWrapper = styled.div<{ theme: any }>`
 
 const BodyPostCardDetails = [
   {
+    image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/rohit-sharma.png",
+    category: "Sports",
+    title: "Rohit Sharma’s Test Cricket Retirement: A Legendary Career Bows Out",
+    href: genereateHref('sports-fitness','rohit-sharma-test-retirement'),
+    date: "May 08, 2025",
+  },
+  {
     image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/finance-insurance/gold-investment.png",
     category: "Finance",
     title: "Digital Gold vs. Gold ETFs vs. Physical Gold",
