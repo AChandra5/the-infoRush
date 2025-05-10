@@ -116,6 +116,19 @@ const StyledCardWrapper = styled.div<{ theme: any }>`
 
 const BodyPostCardDetails = [
   {
+    image:
+    "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/finance-insurance/india-pakistan-war-financial-preperation.png",
+    category: "Finance",
+    title: "India-Pakistan War: How should we prepare our personal finances in case of war?",
+    href: genereateHref(
+      "finance-insurance",
+      "india-pakistan-war-personal-finances-preperation"
+    ),
+    date: "May 10, 2025",
+
+  },
+
+  {
     image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/rohit-sharma.png",
     category: "Sports",
     title: "Rohit Sharma’s Test Cricket Retirement: A Legendary Career Bows Out",
