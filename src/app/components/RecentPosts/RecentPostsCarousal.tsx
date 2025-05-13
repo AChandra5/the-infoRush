@@ -116,6 +116,24 @@ const StyledCardWrapper = styled.div<{ theme: any }>`
 
 const BodyPostCardDetails = [
   {
+    image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/virat-kohli-retires.png",
+    category: "Sports",
+    title: "Virat Kohli’s Test Retirement: An Emotional Farewell to a Cricket Legend",
+    href: genereateHref('sports-fitness','virat-kohli-test-retirement'),
+    date: "May 13, 2025",
+    },
+  {
+    image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/finance-insurance/how-to-build-an-emergency-fund.png"
+    ,
+    category: "Finance",
+    title: "How to Build an Emergency Fund (Without Stressing About It)?",
+    href: genereateHref(
+      "finance-insurance",
+      "how-to-build-an-emergency-fund"
+    ),
+    date: "May 13, 2025",
+  },
+  {
     image:
     "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/finance-insurance/india-pakistan-war-financial-preperation.png",
     category: "Finance",
@@ -125,7 +143,6 @@ const BodyPostCardDetails = [
       "india-pakistan-war-personal-finances-preperation"
     ),
     date: "May 10, 2025",
-
   },
 
   {

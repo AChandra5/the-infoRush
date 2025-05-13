@@ -7,6 +7,12 @@ import React, { useEffect } from "react";
 
 const categoriesData = [
   {
+    imgSrc: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/virat-kohli-retires.png",
+    title: "Virat Kohli’s Test Retirement: An Emotional Farewell to a Cricket Legend",
+    gist: "Virat Kohli’s Test retirement marks the end of an era for Indian cricket. Explore Kohli’s incredible Test stats, records, captaincy milestones like the historic series win in Australia, and how his passion and leadership redefined India’s Test legacy in this heartfelt farewell tribute.",
+    href: genereateHref('sports-fitness','virat-kohli-test-retirement'),
+    },
+  {
     imgSrc: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/rohit-sharma.png",
     title: "Rohit Sharma’s Test Cricket Retirement: A Legendary Career Bows Out",
     gist: "Rohit's decision, announced on Instagram, came after months of speculation and a recent dip in form, but it doesn’t diminish his towering legacy. How crucial is this impact to the Indian team?",

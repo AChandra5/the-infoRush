@@ -1,26 +1,19 @@
 "use client";
 import React from "react";
 import {
-//   EmailShareButton,
   FacebookMessengerShareButton,
   FacebookShareButton,
   LinkedinShareButton,
   RedditShareButton,
-//   TelegramShareButton,
-//   ThreadsShareButton,
-//   TwitterShareButton,
   WhatsappShareButton,
 } from "react-share";
 
 import {
-//   EmailIcon,
   FacebookIcon,
   FacebookMessengerIcon,
   LinkedinIcon,
   RedditIcon,
-//   TelegramIcon,
-//   ThreadsIcon,
-//   XIcon,
+
   WhatsappIcon,
 } from "react-share";
 
@@ -33,9 +26,19 @@ const SocialMediaShare = () => {
   const [open, setOpen] = React.useState(false);
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(url);
+    const utmUrl = generateUtmUrl(url, "direct_copy")
+    navigator.clipboard.writeText(utmUrl);
     setOpen(true);
   };
+
+  const generateUtmUrl = (baseUrl: string, source: string) => {
+    const utmParams = new URLSearchParams({
+      utm_source: source,
+      utm_medium: "social",
+      utm_campaign: "content_share"
+    })
+    return `${baseUrl}?${utmParams.toString()}`
+  }
 
   return (
     <>
@@ -49,56 +52,30 @@ const SocialMediaShare = () => {
           alignItems: "center",
         }}
       >
-        {/* <Tooltip title="Email">
-          <EmailShareButton url={url}>
-            <EmailIcon size={28} round />
-          </EmailShareButton>
-        </Tooltip> */}
-
         <Tooltip title="Facebook">
-          <FacebookShareButton url={url}>
+          <FacebookShareButton url={generateUtmUrl(url, "facebook")}>
             <FacebookIcon size={28} round />
           </FacebookShareButton>
         </Tooltip>
-
         <Tooltip title="Messenger">
-          <FacebookMessengerShareButton appId="123" url={url}>
+          <FacebookMessengerShareButton appId="123" url={generateUtmUrl(url, "facebookMessenger")}>
             <FacebookMessengerIcon size={28} round />
           </FacebookMessengerShareButton>
         </Tooltip>
 
         <Tooltip title="LinkedIn">
-          <LinkedinShareButton url={url}>
+          <LinkedinShareButton url={generateUtmUrl(url, "linkedin")}>
             <LinkedinIcon size={28} round />
           </LinkedinShareButton>
         </Tooltip>
 
         <Tooltip title="Reddit">
-          <RedditShareButton url={url}>
+          <RedditShareButton url={generateUtmUrl(url, "reddit")}>
             <RedditIcon size={28} round />
           </RedditShareButton>
         </Tooltip>
-
-        {/* <Tooltip title="Telegram">
-          <TelegramShareButton url={url}>
-            <TelegramIcon size={28} round />
-          </TelegramShareButton>
-        </Tooltip> */}
-
-        {/* <Tooltip title="Threads">
-          <ThreadsShareButton url={url}>
-            <ThreadsIcon size={28} round />
-          </ThreadsShareButton>
-        </Tooltip> */}
-
-        {/* <Tooltip title="Twitter (X)">
-          <TwitterShareButton url={url}>
-            <XIcon size={28} round />
-          </TwitterShareButton>
-        </Tooltip> */}
-
         <Tooltip title="WhatsApp">
-          <WhatsappShareButton url={url}>
+          <WhatsappShareButton url={generateUtmUrl(url, "whatsApp")}>
             <WhatsappIcon size={28} round />
           </WhatsappShareButton>
         </Tooltip>

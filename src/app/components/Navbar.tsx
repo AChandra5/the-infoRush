@@ -222,19 +222,27 @@ export default function NavBar() {
                   borderBottom:
                   item.path && pathname.includes(item.path)
                     ? "2px solid #31cccc"
-                    : "none",                  
+                    : "none",
                     ":hover": {
-                    boxShadow:
-                      theme.palette.mode === "dark"
-                        ? "0px 2px 6px rgba(255, 255, 255, 0.9)"
-                        : "0px 2px 6px #0D3483",
-                    fontSize: "20px",
-    transition: "transform 0.5s ease",
-                    transform: "scale(1.05)",
-                    padding: "5px",
-                    borderRadius: "10px",
-                  },
-                }}
+                      // transform: "scale(1.05)",
+                      boxShadow: theme.palette.mode === "dark"
+                        ? "0px 6px 20px rgba(255, 255, 255, 0.25)"
+                        : "0px 6px 20px #0D3483",
+                        // padding: "0px 1px 0px 1px",
+                        borderRadius: "5px"
+                    }
+                  }}
+    //                 boxShadow:
+    //                   theme.palette.mode === "dark"
+    //                     ? "0px 2px 6px rgba(255, 255, 255, 0.9)"
+    //                     : "0px 2px 6px #0D3483",
+    //                 fontSize: "20px",
+    // transition: "transform 0.5s ease",
+    //                 transform: "scale(1.05)",
+    //                 padding: "5px",
+    //                 borderRadius: "10px",
+    //               },
+    
                 onClick={() => {
                   trackClickEvent({
                     action: "click",

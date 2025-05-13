@@ -6,7 +6,15 @@ import React, { useEffect } from "react";
 
 const categoriesData = [
   {
-    title: "India-Pakistan War: How should we prepare our personal finances incase of war?",
+    title: "How to Build an Emergency Fund (Without Stressing About It)",
+    gist: "Learn how to build an emergency fund in India — how much to save, where to keep it, and smart tips to stay financially safe. Start saving with this guide!",
+    href: genereateHref("finance-insurance", "how-to-build-an-emergency-fund"),
+    imgSrc:
+      "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/finance-insurance/how-to-build-an-emergency-fund.png",
+  },
+  {
+    title:
+      "India-Pakistan War: How should we prepare our personal finances incase of war?",
     gist: "With the recent India Pakistan tensions and stand offs at the border, how should we be financially prepared if it escalates to a full fledged India-Pakistan war? Let's learn here.",
     href: genereateHref(
       "finance-insurance",

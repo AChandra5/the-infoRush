@@ -9,6 +9,8 @@ import TrackPageLoad from "./TrackPageLoad";
 import React from "react";
 import { compileMDX } from "next-mdx-remote/rsc";
 
+export const revalidate = 60; // ✅ revalidate every 60 seconds
+
 export default async function BlogPost({
   params,
 }: {
