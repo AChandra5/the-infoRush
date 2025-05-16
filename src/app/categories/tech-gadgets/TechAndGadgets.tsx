@@ -12,7 +12,7 @@ const categoriesData = [
       "iPhone 17 Pro Max: What to Expect, What’s New, and Is It Worth the Upgrade?",
     gist: "Discover iPhone 17 Pro Max features, camera upgrades, A18 chip, and design leaks. Should you upgrade from iPhone 16 Pro Max? Find out now.",
     href: genereateHref("tech-gadgets", "iphone-17-pro-max"),
-  },,
+  },
   {
     imgSrc:
       "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/tech-gadgets/best-smartphones-under-25k.png",
