@@ -7,6 +7,12 @@ import React, { useEffect } from "react";
 
 const categoriesData = [
   {
+    imgSrc: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/test-cricket.png",
+    title: "Why is Test Cricket Harder and Important? The Enduring Legacy of the Red Ball Game",
+    gist: "Explore why Test cricket remains relevant today. Understand key rules like follow-on and declaration, red vs pink ball differences, and examples of iconic Test match moments.",
+    href: genereateHref('sports-fitness','why-is-test-cricket-harder'),
+    },
+  {
     imgSrc: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/virat-kohli-retires.png",
     title: "Virat Kohli’s Test Retirement: An Emotional Farewell to a Cricket Legend",
     gist: "Virat Kohli’s Test retirement marks the end of an era for Indian cricket. Explore Kohli’s incredible Test stats, records, captaincy milestones like the historic series win in Australia, and how his passion and leadership redefined India’s Test legacy in this heartfelt farewell tribute.",

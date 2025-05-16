@@ -116,6 +116,20 @@ const StyledCardWrapper = styled.div<{ theme: any }>`
 
 const BodyPostCardDetails = [
   {
+    image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/tech-gadgets//iphone-17-announced.jpg",
+    category: "tech",
+    title: "iPhone 17 Pro Max: What to Expect, What’s New, and Is It Worth the Upgrade?",
+    href: genereateHref('sports-fitness','iphone-17-pro-max'),
+    date: "May 16, 2025",
+    },
+  {
+    image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/test-cricket.png",
+    category: "Sports",
+    title: "Why is Test Cricket Harder and Important? The Enduring Legacy of the Red Ball Game",
+    href: genereateHref('sports-fitness','why-is-test-cricket-harder'),
+    date: "May 15, 2025",
+    },
+  {
     image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/virat-kohli-retires.png",
     category: "Sports",
     title: "Virat Kohli’s Test Retirement: An Emotional Farewell to a Cricket Legend",
