@@ -119,7 +119,7 @@ const BodyPostCardDetails = [
     image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/tech-gadgets//iphone-17-announced.jpg",
     category: "tech",
     title: "iPhone 17 Pro Max: What to Expect, What’s New, and Is It Worth the Upgrade?",
-    href: genereateHref('sports-fitness','iphone-17-pro-max'),
+    href: genereateHref("tech-gadgets",'iphone-17-pro-max'),
     date: "May 16, 2025",
     },
   {
