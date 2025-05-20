@@ -74,6 +74,7 @@ const FooterWrapper = styled.div<{ theme: any }>`
       &:hover {
         color: ${({ theme }) =>
           theme.palette.mode === "dark" ? "#90caf9" : "#0D3483"};
+        text-decoration: underline;
       }
     }
   }
@@ -96,6 +97,11 @@ const FooterWrapper = styled.div<{ theme: any }>`
       text-decoration: underline;
       color: ${({ theme }) =>
         theme.palette.mode === "dark" ? "#ccc" : "#0D3483"};
+       &:hover {
+        color: ${({ theme }) =>
+          theme.palette.mode === "dark" ? "#90caf9" : "#0D3483"};
+        text-decoration: underline;
+      }
     }
   }
 
@@ -113,6 +119,8 @@ const FooterWrapper = styled.div<{ theme: any }>`
 
       &:hover {
         transform: scale(1.1);
+                text-decoration: underline;
+
       }
 
       img {
