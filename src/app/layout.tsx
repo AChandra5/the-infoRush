@@ -63,6 +63,8 @@ export default function RootLayout({
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
         />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7725273560791505"
+     crossOrigin="anonymous"></script>
         <Script
           id="gtag-init"
           strategy="afterInteractive"
