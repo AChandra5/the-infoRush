@@ -59,6 +59,7 @@ export default function RootLayout({
         {/* Google Analytics Script */}
         <link rel="icon" href="/assets/favico.png"></link>
         <link rel="shortcut icon" href="/assets/favico.png" type="image/x-icon" />
+        <meta name="google-adsense-account" content="ca-pub-7725273560791505"></meta>
         <Script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}

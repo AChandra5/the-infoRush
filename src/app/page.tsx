@@ -60,6 +60,7 @@ export default function Home() {
   <meta name="twitter:title" content="The InfoRush" />
   <meta name="twitter:description" content="InfoRush brings you quick, needful knowledge pills on tech, finance, fitness, and cricket — all in one place." />
   <meta name="twitter:image" content="https://www.theinforush.com/assets/logo.png" />
+  <meta name="google-adsense-account" content="ca-pub-7725273560791505"></meta>
 </Head>
   <ClientHome />
   </>

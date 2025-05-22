@@ -7,6 +7,13 @@ import React, { useEffect } from "react";
 const categoriesData = [
   {
     imgSrc:
+      "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/tech-gadgets/tws-under-5000.png",
+    title: "Best TWS Earbuds Under ₹5,000 in India [August 2025 Edition]",
+    gist: "Looking for affordable true wireless earbuds? Explore our top 7 picks under ₹5,000 for music, calls, and workout use — updated for August 2025.",
+    href: genereateHref("tech-gadgets", "best-tws-under-5000"),
+  },
+  {
+    imgSrc:
       "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/tech-gadgets//iphone-17-announced.jpg",
     title:
       "iPhone 17 Pro Max: What to Expect, What’s New, and Is It Worth the Upgrade?",
@@ -16,18 +23,16 @@ const categoriesData = [
   {
     imgSrc:
       "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/tech-gadgets/best-smartphones-under-25k.png",
-    title:
-      "Best smartphones under ₹25000 in 2025",
+    title: "Best smartphones under ₹25000 in 2025",
     gist: "As of May 2025, many sub-₹25,000 smartphones ship with 5G, high-refresh AMOLED displays, and fast chipsets. Look at our picks that balance performance, battery life, and camera quality.",
     href: genereateHref("tech-gadgets", "best-smartphones-under-25000"),
   },
   {
     imgSrc:
       "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/tech-gadgets/lpddr5-ram.jpg",
-    title:
-      "What is LPDDR5 RAM? Should You Care About It in Your Next Phone?",
-      gist: "Wondering what LPDDR5 RAM means in smartphones? Learn how LPDDR5 improves speed, gaming, battery life, and whether you need it in your next phone in 2025..",
-      href: genereateHref("tech-gadgets", "lpddr5-ram-explained"),
+    title: "What is LPDDR5 RAM? Should You Care About It in Your Next Phone?",
+    gist: "Wondering what LPDDR5 RAM means in smartphones? Learn how LPDDR5 improves speed, gaming, battery life, and whether you need it in your next phone in 2025..",
+    href: genereateHref("tech-gadgets", "lpddr5-ram-explained"),
   },
   {
     imgSrc:
@@ -83,7 +88,10 @@ const TechAndGadgets = () => {
 
   return (
     <>
-      <CategoriesGist categoriesData={categoriesData} categoryheading="Tech  & Gadgets"/>
+      <CategoriesGist
+        categoriesData={categoriesData}
+        categoryheading="Tech  & Gadgets"
+      />
     </>
   );
 };

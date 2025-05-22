@@ -116,6 +116,14 @@ const StyledCardWrapper = styled.div<{ theme: any }>`
 
 const BodyPostCardDetails = [
   {
+    image:
+      "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/tech-gadgets/tws-under-5000.png",
+    category: "tech",
+    title: "Best TWS Earbuds Under ₹5,000 in India [August 2025 Edition]",
+    href: genereateHref("tech-gadgets", "best-tws-under-5000"),
+    date: "May 22, 2025",
+  },
+  {
     image: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/tech-gadgets//iphone-17-announced.jpg",
     category: "tech",
     title: "iPhone 17 Pro Max: What to Expect, What’s New, and Is It Worth the Upgrade?",
@@ -186,7 +194,7 @@ const BodyPostCardDetails = [
       "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/tech-gadgets/best-smart-phones-under-15000.png",
       category: "Tech",
     title: "Best smartphones under ₹15000 in 2025. Top pick for you [Every month update]",
-    date: "April 24, 2025",
+    date: "May 20, 2025",
     href: genereateHref("tech-gadgets", "best-smart-phones-under-15000"),
   },
   {
