@@ -7,6 +7,12 @@ import React, { useEffect } from "react";
 
 const categoriesData = [
   {
+    imgSrc: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/jadeja-sundar.png",
+    title: "The Manchester Wall: Jadeja & Washington’s Unbreakable Stand",
+    gist: "Two warriors emerged from the ashes to build what will now be etched in Test‑cricket lore as The Manchester Wall. Ravindra Jadeja and Washington Sundar—a partnership of grit, belief, and steel—transformed what looked like a rout into a celebration of never‑say‑die spirit.",
+    href: genereateHref('sports-fitness','the-manchester-wall'),
+    },
+  {
     imgSrc: "https://cdn.jsdelivr.net/gh/AChandra5/inforush-assets/sports-fitness/test-cricket.png",
     title: "Why is Test Cricket Harder and Important? The Enduring Legacy of the Red Ball Game",
     gist: "Explore why Test cricket remains relevant today. Understand key rules like follow-on and declaration, red vs pink ball differences, and examples of iconic Test match moments.",
